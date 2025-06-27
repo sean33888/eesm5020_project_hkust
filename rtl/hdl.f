@@ -1,0 +1,9 @@
+$RTL_PATH/data_control.v
+$RTL_PATH/hybrid_chaotic_encryption.v
+$RTL_PATH/keystream_control.v
+$RTL_PATH/logistic_map_core.v
+$RTL_PATH/parameter_extraction.v
+$RTL_PATH/random_sequence_generator.v
+$RTL_PATH/tent50_map_core.v
+$RTL_PATH/tent_map_core.v
+$RTL_PATH/xor_module.v
