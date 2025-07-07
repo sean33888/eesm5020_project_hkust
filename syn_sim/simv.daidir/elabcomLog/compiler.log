@@ -1,0 +1,15 @@
+*design* DebussyLib (btIdent Verdi_V-2023.12)
+Command arguments:  -lib  simv.daidir/work  -saveLevel  -elab  simv.daidir/kdb  -simflow  -simdir  simv.daidir/kdb_libs  -topfile  simv.daidir/.elabcomTopFile  -ssz  -ssv  -ssy  -Lf  work  +disable_message+C00380+C00381  +disable_message+C00388+C00389  -SNPS_ELABCOM  -saveElab 
+
+*Warning* Failed to find the specified instance parameter DATA_WIDTH in the master hybrid_chaotic_encryption
+"../tb/hybrid_chaotic_encryption_tb.sv", 49: 
+
+*Warning* Failed to find the specified instance parameter INPUT_WIDTH in the master hybrid_chaotic_encryption
+"../tb/hybrid_chaotic_encryption_tb.sv", 49: 
+
+*Warning* Failed to find the specified instance parameter DATA_WIDTH in the master hybrid_chaotic_encryption
+"../tb/hybrid_chaotic_encryption_tb.sv", 64: 
+
+*Warning* Failed to find the specified instance parameter INPUT_WIDTH in the master hybrid_chaotic_encryption
+"../tb/hybrid_chaotic_encryption_tb.sv", 64: 
+Total	0 error(s),   4 warning(s)

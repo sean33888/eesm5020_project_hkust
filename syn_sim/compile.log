@@ -1,0 +1,78 @@
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-debug_all' will be deprecated in a future release.  Please use 
+  '-debug_acc+all+dmptf -debug_region+cell+encrypt' instead.
+
+Command: vcs -kdb -full64 -sverilog ../syn/results/encoder.mapped.v -f ../tb/tb.f \
++v2k -debug_all -top tb_hybrid_chaotic_encryption -timescale=1ns/1ps +neg_tchk +warn=noTFIPC \
+-v /afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/verilog/tcb018g3d3_280a/tcb018g3d3.v \
++define+SDF_FILE=\"../syn/results/encoder.mapped.sdf\" -l compile.log
+                         Chronologic VCS (TM)
+         Version V-2023.12_Full64 -- Sun May 25 19:35:30 2025
+
+                    Copyright (c) 1991 - 2023 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-debug_all' will be deprecated in a future release.  Please use 
+  '-debug_acc+all -debug_region+cell+encrypt' instead.
+
+Parsing design file '../syn/results/encoder.mapped.v'
+Parsing design file '../tb/hybrid_chaotic_encryption_tb.sv'
+Parsing design file '../tb/clk_gen.sv'
+Parsing library file '/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/verilog/tcb018g3d3_280a/tcb018g3d3.v'
+Top Level Modules:
+       tb_hybrid_chaotic_encryption
+
+Warning-[AOUP] Attempt to override undefined parameter
+../tb/hybrid_chaotic_encryption_tb.sv, 49
+  Attempting to override undefined parameter "DATA_WIDTH", will ignore it.
+
+
+Warning-[AOUP] Attempt to override undefined parameter
+../tb/hybrid_chaotic_encryption_tb.sv, 49
+  Attempting to override undefined parameter "INPUT_WIDTH", will ignore it.
+
+
+Warning-[AOUP] Attempt to override undefined parameter
+../tb/hybrid_chaotic_encryption_tb.sv, 64
+  Attempting to override undefined parameter "DATA_WIDTH", will ignore it.
+
+
+Warning-[AOUP] Attempt to override undefined parameter
+../tb/hybrid_chaotic_encryption_tb.sv, 64
+  Attempting to override undefined parameter "INPUT_WIDTH", will ignore it.
+
+TimeScale is 1 ns / 1 ps
+Starting vcs inline pass...
+
+Notice: Ports coerced to inout, use -notice for details
+136 modules and 3 UDPs read.
+	However, due to incremental compilation, no re-compilation is necessary.
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/usr/eelocal/synopsys/vcs-vv2023.12/linux64/lib -L/usr/eelocal/synopsys/vcs-vv2023.12/linux64/lib \
+-Wl,-rpath-link=./   objs/amcQw_d.o   _39745_archive_1.so _prev_archive_1.so objs/udps/m6zeg.o \
+objs/udps/JvR1L.o objs/udps/df3ii.o   SIM_l.o       rmapats_mop.o rmapats.o rmar.o \
+rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lnuma -lvirsim -lerrorinf \
+-lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /usr/eelocal/synopsys/vcs-vv2023.12/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive          /usr/eelocal/synopsys/vcs-vv2023.12/linux64/lib/vcs_save_restore_new.o \
+-ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: 1.463 seconds to compile + .635 seconds to elab + .267 seconds to link
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 4 warning(s)

@@ -1,0 +1,4 @@
+../syn/results/encoder.mapped.v
+../tb/clk_gen.sv
+../tb/hybrid_chaotic_encryption_tb.sv
+/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/verilog/tcb018g3d3_280a/tcb018g3d3.v
