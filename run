@@ -1,0 +1,11 @@
+#!/bin/sh
+
+################################################################################
+# Specify the filepath of the verilog library file of standard cell
+################################################################################
+VERILOG_LIB=/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/verilog/tcb018g3d3_280a/tcb018g3d3.v
+
+SDF_LOCATION="../syn/results/encoder.mapped.sdf"
+
+vcs -kdb -full64 -sverilog ../syn/results/encoder.mapped.v -f ../tb/tb.f +v2k -debug_all -top tb_hybrid_chaotic_encryption \
+  -timescale=1ns/1ps +neg_tchk +warn=noTFIPC -v $VERILOG_LIB +define+SDF_FILE=\"$SDF_LOCATION\" -l compile.log 
