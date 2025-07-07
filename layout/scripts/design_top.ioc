@@ -1,0 +1,48 @@
+################################################################################
+# Filename: design_top.ioc
+# Author: TIAN Fengshi
+# Email: fengshi.tian@connect.ust.hk
+# Affiliation: Hong Kong University of Science and Technology
+# ------------------------------------------------------------------------------
+#
+# This file defines the IO location constraint of the divider module. The input
+# pins are allocated at the left and right edge (on Metal 2). The output pins
+# are allocated at the top and bottom edge (on Metal 3). The space between each
+# pin is set as 1.5um. There is an offset of 1um to ensure the module pins do
+# not have any overlap with each other. Each pin dimension is set to be 0.14um x
+# 0.14um.
+#
+# Note: if we do not provide the IO location constraint for our divider module,
+# the Encounter will randomly place our pins.
+################################################################################
+
+(globals
+    version = 3
+    io_order = default
+    space = 10
+)
+(iopin
+    (top
+	{% for i in range(34) %}
+	(pin name="key" layer=2 location = "{{ i * 1.000 + 1.0 }}, 0.0") endpin
+	{% endfor %}
+    )
+    (left
+	{% for j in range(8) %}
+	(pin name="plaintext"	 layer=2 location = "{{ i * 1.000 + 1.0 }}, 0.0") endpin
+	{% endfor %}
+	
+    )
+    (bottom
+    	(pin name="clk"	 	 layer=2 width=1.0000 depth=1.0000 offset=10.0)
+	(pin name="rst_n"	 layer=2 width=1.0000 depth=1.0000 offset=2.0)
+	(pin name="key_valid_in"	 layer=2 width=1.0000 depth=1.0000 offset=4.0)
+	(pin name="plaintext_valid_in"	 layer=2 width=1.0000 depth=1.0000 offset=6.0)
+	(pin name="ciphertext_valid"	 layer=2 width=1.0000 depth=1.0000 offset=8.0)
+    )
+    (right
+	{% for j in range(8) %}
+	(pin name="ciphertext"	 layer=2 location = "{{ i * 1.000 + 1.0 }}, 0.0") endpin
+	{% endfor %}
+    )
+)
