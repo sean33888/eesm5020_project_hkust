@@ -1,0 +1,97 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 20.10-p004_1 (64bit) 05/07/2020 20:02 (Linux 2.6.32-431.11.2.el6.x86_64)
+*	
+*
+* 	Date & Time:	2025-May-25 22:14:10 (2025-May-25 14:14:10 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: hybrid_chaotic_encryption
+*
+*	Liberty Libraries used: 
+*	        wc: /afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:       2.97 
+*
+*       Power View : wc
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       report_power -outfile reports/design_top.routed.power.rpt
+*
+-----------------------------------------------------------------------------------------
+
+
+Total Power 
+-----------------------------------------------------------------------------------------
+Total Internal Power:        2.55330939 	   72.7302%
+Total Switching Power:       0.95683275 	   27.2551%
+Total Leakage Power:         0.00051893 	    0.0148%
+Total Power:                 3.51066108 
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         0.308     0.04942   3.878e-05      0.3574       10.18 
+Macro                                  0           0           0           0           0 
+IO                                     0           0           0           0           0 
+Combinational                      2.234      0.8748   0.0004791        3.11       88.57 
+Clock (Combinational)            0.01106      0.0326   1.009e-06     0.04366       1.244 
+Clock (Sequential)                     0           0           0           0           0 
+-----------------------------------------------------------------------------------------
+Total                              2.553      0.9568   0.0005189       3.511         100 
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      2.97      2.553      0.9568   0.0005189       3.511         100 
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+clk                              0.01106      0.0326   1.009e-06     0.04366       1.244 
+-----------------------------------------------------------------------------------------
+Total (excluding duplicates)     0.01106      0.0326   1.009e-06     0.04366       1.244 
+-----------------------------------------------------------------------------------------
+Clock: clk
+Clock Period: 0.250000 usec 
+Clock Toggle Rate:     8.0000 Mhz 
+Clock Static Probability:  0.5000
+
+
+
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*                Highest Average Power:       CTS_ccl_a_buf_00006 (CKBD16):          0.02227 
+*                Highest Leakage Power:       CTS_ccl_a_buf_00006 (CKBD16):        5.044e-07 
+*          Total Cap:      7.3028e-11 F
+*          Total instances in design:  2588
+*          Total instances in design with no power:     1
+*          Total instances in design with no activity:     1
+*          Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+

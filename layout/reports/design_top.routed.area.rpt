@@ -1,0 +1,22 @@
+    Hinst Name                                  Module Name                                  Inst Count           Total Area
+-------------------------------------------------------------------------------------------------------------------------
+hybrid_chaotic_encryption                                                                          2588           113175.418
+ data_ctrl                                      data_control_DATA_WIDTH12                            20              414.893
+ para_extract                                   parameter_extraction_DATA_WIDTH8_OUT_WIDTH12        175             6564.902
+ ran_seq_gen                                    random_sequence_generator_DATA_WIDTH12             2364           104897.318
+  ran_seq_gen/keystream                         keystream_control                                    63             2080.109
+  ran_seq_gen/logistic_core                     logistic_map_core                                  1160            45635.386
+   ran_seq_gen/logistic_core/add_60             logistic_map_core_DW01_inc_0                          7              304.819
+   ran_seq_gen/logistic_core/mult_26            logistic_map_core_DW02_mult_1                       363            13849.517
+    ran_seq_gen/logistic_core/mult_26/FS_1      logistic_map_core_DW01_add_1_DW01_add_3              50              858.010
+   ran_seq_gen/logistic_core/mult_26_2          logistic_map_core_DW02_mult_0                       641            27515.578
+    ran_seq_gen/logistic_core/mult_26_2/FS_1    logistic_map_core_DW01_add_0_DW01_add_2              45              728.179
+  ran_seq_gen/tent50_core                       tent50_map_core                                    1126            56442.355
+   ran_seq_gen/tent50_core/add_0_root_add_22_ni tent50_map_core_DW01_inc_2_DW01_inc_5                11              564.480
+   ran_seq_gen/tent50_core/add_0_root_add_23_ni tent50_map_core_DW01_inc_1_DW01_inc_4                11              564.480
+   ran_seq_gen/tent50_core/div_24               tent50_map_core_DW_div_uns_1_DW_div_uns_3           461            25288.704
+   ran_seq_gen/tent50_core/div_25               tent50_map_core_DW_div_uns_0_DW_div_uns_2           473            25424.179
+  ran_seq_gen/tent_core                         tent_map_core                                         4              146.765
+   ran_seq_gen/tent_core/add_0_root_add_18_ni   tent_map_core_DW01_inc_0_DW01_inc_2                   0                0.000
+   ran_seq_gen/tent_core/add_0_root_add_19_ni   tent_map_core_DW01_inc_1_DW01_inc_3                   0                0.000
+ xor_mod                                        xor_module_DATA_WIDTH12                              26             1114.848
