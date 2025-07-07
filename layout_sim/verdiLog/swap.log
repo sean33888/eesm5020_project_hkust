@@ -1,0 +1,42 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 294912 bytes [need 288K bytes if disable swap]
+
+used block: 15 [memory(15) file(0)]
+                 [ 8K(12) 64K(3) { total 288K bytes } ]
+overhead: (13584) bytes for (15) blocks [Average: (905) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 3(times) 140K(bytes) [28K bytes compressed data from file]
+access => 205841(times) 1634M(bytes)
+          [hit ratio: 99.9985%]
+
+time: write(0) read(0.003)  unit: second
+
+swap file directory: (/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout_sim/verdiLog)
+used swap file number: (3)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (4)
+closeHead: (1)
+closeTail: (3)
+openCnt: (3)
+fid(3): fd(1073741825) fileName(/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout_sim/simv.daidir/kdb.elab++/work.lib++/encoder.routed.v.tdc)
+	size(535417) lastModTime(1748175797) curModTime(1748175797)
+	mode(rb)	hot(0) cool(2) pos(0)
+fid(2): fd(29) fileName(/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout_sim/verdiLog/_swap_0001#8323328#30820)
+	size(0) lastModTime(0) curModTime(1748263535)
+	mode(w+b)	hot(3) cool(1) pos(0)
+fid(1): fd(1073741824) fileName(/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout_sim/simv.daidir/kdb.elab++/work.lib++/hybrid_chaotic_encryption_tb.sv.tdc)
+	size(9072) lastModTime(1748175797) curModTime(1748175797)
+	mode(rb)	hot(2) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(0x2048eaa0) pre(0x20466c40) next((nil))
+version(200506)
+date(Oct 26 2023 02:39:12)
