@@ -1,0 +1,1 @@
+/dfs/usrhome/yhsuai/elec5160/eesm5020project1/syn/results/encoder.mapped.sdc
