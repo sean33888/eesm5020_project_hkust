@@ -1,0 +1,138 @@
+verdiSetActWin -dock widgetDock_<Watch>
+simSetSimulator "-vcssv" -exec \
+           "/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn_sim/simv" \
+           -args \
+           "-ucli +PLAINTEXT=/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb/tc_data/plaintext_sanity.txt +PARAM=/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb/tc_data/param_sanity.txt"
+debImport "-dbdir" \
+          "/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn_sim/simv.daidir"
+debLoadSimResult \
+           /dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn_sim/waves.fsdb
+wvCreateWindow
+verdiWindowResize -win $_Verdi_1 "652" "218" "1729" "700"
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+wvSelectGroup -win $_nWave2 {G1}
+verdiSetActWin -win $_nWave2
+verdiWindowResize -win $_Verdi_1 "652" "218" "1729" "963"
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+verdiSetActWin -win $_nWave2
+srcHBSelect "tb_hybrid_chaotic_encryption.uut1" -win $_nTrace1
+srcSetScope "tb_hybrid_chaotic_encryption.uut1" -delim "." -win $_nTrace1
+srcHBSelect "tb_hybrid_chaotic_encryption.uut1" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext" -line 5632 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "clk" -line 5635 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rst_n" -line 5635 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key_valid_in" -line 5635 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key_valid_in" -line 5635 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext_valid_in" -line 5635 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext" -line 5632 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ciphertext_valid" -line 5631 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext" -line 5630 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G2" 0)}
+wvSetPosition -win $_nWave2 {("G1" 6)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key_valid_in" -line 5630 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+wvSetPosition -win $_nWave2 {("G2" 0)}
+verdiSetActWin -win $_nWave2
+wvScrollDown -win $_nWave2 0
+srcHBSelect "tb_hybrid_chaotic_encryption.clk_gen_inst" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "tb_hybrid_chaotic_encryption.uut2" -win $_nTrace1
+srcSetScope "tb_hybrid_chaotic_encryption.uut2" -delim "." -win $_nTrace1
+srcHBSelect "tb_hybrid_chaotic_encryption.uut2" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "clk" -line 5630 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rst_n" -line 5630 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext_valid_in" -line 5631 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key_valid_in" -line 5630 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "key" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext_valid_in" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "plaintext" -line 5630 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ciphertext_valid" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ciphertext" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvScrollDown -win $_nWave2 1
+wvScrollDown -win $_nWave2 1
+wvScrollDown -win $_nWave2 0
+verdiSetActWin -win $_nWave2
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvSetPosition -win $_nWave2 {("G1" 6)}
+srcHBSelect "tb_hybrid_chaotic_encryption.uut1" -win $_nTrace1
+verdiSetActWin -dock widgetDock_<Inst._Tree>
+srcHBSelect "tb_hybrid_chaotic_encryption.uut1" -win $_nTrace1
+srcSetScope "tb_hybrid_chaotic_encryption.uut1" -delim "." -win $_nTrace1
+srcHBSelect "tb_hybrid_chaotic_encryption.uut1" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ciphertext_valid" -line 5631 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "ciphertext" -line 5631 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvScrollDown -win $_nWave2 1
+wvScrollDown -win $_nWave2 1
+verdiSetActWin -win $_nWave2
+wvScrollDown -win $_nWave2 1
+wvScrollDown -win $_nWave2 1
+wvZoomIn -win $_nWave2
+wvZoomIn -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomIn -win $_nWave2

@@ -1,0 +1,71 @@
+Magic 271485
+Revision Verdi_V-2023.12
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 1556 298 248 106
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn_sim/waves.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 7513125.000000 12521875.000000
+cursor 1205000.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 10
+; marker line index
+markerPos 17
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn_sim/waves.fsdb"
+addSignal -h 15 /tb_hybrid_chaotic_encryption/uut1/clk
+addSignal -h 15 -holdScope rst_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope plaintext[7:0]
+addSignal -h 15 -holdScope key_valid_in
+addSignal -h 15 -holdScope plaintext_valid_in
+addSignal -h 15 -UNSIGNED -HEX -holdScope key[33:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope ciphertext[7:0]
+addSignal -h 15 -holdScope ciphertext_valid
+addGroup "G2"
+addSignal -h 15 /tb_hybrid_chaotic_encryption/uut2/clk
+addSignal -h 15 -holdScope rst_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope plaintext[7:0]
+addSignal -h 15 -holdScope key_valid_in
+addSignal -h 15 -holdScope plaintext_valid_in
+addSignal -h 15 -UNSIGNED -HEX -holdScope key[33:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope ciphertext[7:0]
+addSignal -h 15 -holdScope ciphertext_valid
+addGroup "G3"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+
