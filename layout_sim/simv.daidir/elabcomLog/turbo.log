@@ -1,0 +1,3 @@
+Command Line: /usr/eelocal/synopsys/vcs-vv2023.12/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -saveLevel -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -topfile simv.daidir/.elabcomTopFile -ssz -ssv -ssy -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389
+uname(Linux ecelvd703.ece.local 3.10.0-1160.119.1.el7.x86_64 #1 SMP Tue Jun 4 14:43:51 UTC 2024 x86_64)
+au time 0.311050 0.103405 0.030085 delta 96247808 96247808 total 356077568 356077568

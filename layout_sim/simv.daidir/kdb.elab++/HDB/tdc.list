@@ -1,0 +1,4 @@
+../layout/results/encoder.routed.v
+/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/verilog/tcb018g3d3_280a/tcb018g3d3.v
+/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb//clk_gen.sv
+/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb//hybrid_chaotic_encryption_tb.sv
