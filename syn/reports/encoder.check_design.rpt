@@ -1,0 +1,86 @@
+ 
+****************************************
+check_design summary:
+Version:     P-2019.03-SP5
+Date:        Sun May 25 18:47:56 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     48
+    Unconnected ports (LINT-28)                                    12
+    Feedthrough (LINT-29)                                          36
+
+Cells                                                               4
+    Cells do not drive (LINT-1)                                     4
+
+Nets                                                               13
+    Unloaded nets (LINT-2)                                         13
+--------------------------------------------------------------------------------
+
+Warning: In design 'parameter_extraction_DATA_WIDTH8_OUT_WIDTH12', cell 'C388' does not drive any nets. (LINT-1)
+Warning: In design 'tent50_map_core', cell 'C199' does not drive any nets. (LINT-1)
+Warning: In design 'logistic_map_core', cell 'C300' does not drive any nets. (LINT-1)
+Warning: In design 'tent_map_core', cell 'B_2' does not drive any nets. (LINT-1)
+Warning: In design 'hybrid_chaotic_encryption', net 'key_valid_out' driven by pin 'para_extract/key_valid_out' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[0]' driven by pin 'ran_seq_gen/tent_core/key3[0]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[1]' driven by pin 'ran_seq_gen/tent_core/key3[1]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[2]' driven by pin 'ran_seq_gen/tent_core/key3[2]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[3]' driven by pin 'ran_seq_gen/tent_core/key3[3]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[4]' driven by pin 'ran_seq_gen/tent_core/key3[4]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[5]' driven by pin 'ran_seq_gen/tent_core/key3[5]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[6]' driven by pin 'ran_seq_gen/tent_core/key3[6]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[7]' driven by pin 'ran_seq_gen/tent_core/key3[7]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[8]' driven by pin 'ran_seq_gen/tent_core/key3[8]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[9]' driven by pin 'ran_seq_gen/tent_core/key3[9]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[10]' driven by pin 'ran_seq_gen/tent_core/key3[10]' has no loads. (LINT-2)
+Warning: In design 'hybrid_chaotic_encryption', net 'ran_seq_gen/key3[11]' driven by pin 'ran_seq_gen/tent_core/key3[11]' has no loads. (LINT-2)
+Warning: In design 'xor_module_DATA_WIDTH12', port 'key_out[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'xor_module_DATA_WIDTH12', port 'key_out[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'xor_module_DATA_WIDTH12', port 'key_out[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'xor_module_DATA_WIDTH12', port 'key_out[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'tent50_map_core', port 'precision_sel[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'tent50_map_core', port 'precision_sel[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'logistic_map_core', port 'precision_sel[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'logistic_map_core', port 'precision_sel[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'logistic_map_core', port 'order[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'logistic_map_core', port 'order[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'tent_map_core', port 'precision_sel[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'tent_map_core', port 'precision_sel[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[11]' is connected directly to output port 'key_in[11]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[10]' is connected directly to output port 'key_in[10]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[9]' is connected directly to output port 'key_in[9]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[8]' is connected directly to output port 'key_in[8]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[7]' is connected directly to output port 'key_in[7]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[6]' is connected directly to output port 'key_in[6]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[5]' is connected directly to output port 'key_in[5]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[4]' is connected directly to output port 'key_in[4]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[3]' is connected directly to output port 'key_in[3]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[2]' is connected directly to output port 'key_in[2]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[1]' is connected directly to output port 'key_in[1]'. (LINT-29)
+Warning: In design 'data_control_DATA_WIDTH12', input port 'y0[0]' is connected directly to output port 'key_in[0]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[11]' is connected directly to output port 'tent50[11]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[10]' is connected directly to output port 'tent50[10]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[9]' is connected directly to output port 'tent50[9]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[8]' is connected directly to output port 'tent50[8]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[7]' is connected directly to output port 'tent50[7]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[6]' is connected directly to output port 'tent50[6]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[5]' is connected directly to output port 'tent50[5]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[4]' is connected directly to output port 'tent50[4]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[3]' is connected directly to output port 'tent50[3]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[2]' is connected directly to output port 'tent50[2]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[1]' is connected directly to output port 'tent50[1]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'key_in[0]' is connected directly to output port 'tent50[0]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[11]' is connected directly to output port 'tent[11]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[10]' is connected directly to output port 'tent[10]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[9]' is connected directly to output port 'tent[9]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[8]' is connected directly to output port 'tent[8]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[7]' is connected directly to output port 'tent[7]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[6]' is connected directly to output port 'tent[6]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[5]' is connected directly to output port 'tent[5]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[4]' is connected directly to output port 'tent[4]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[3]' is connected directly to output port 'tent[3]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[2]' is connected directly to output port 'tent[2]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[1]' is connected directly to output port 'tent[1]'. (LINT-29)
+Warning: In design 'keystream_control', input port 'logistic_key_out[0]' is connected directly to output port 'tent[0]'. (LINT-29)
+1

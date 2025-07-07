@@ -1,0 +1,699 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+Design : hybrid_chaotic_encryption
+Version: P-2019.03-SP5
+Date   : Sun May 25 18:51:58 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: tcb018g3d3wc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: key[8] (input port clocked by clk)
+  Endpoint: para_extract/alpha_reg_7_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: REGIN
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  hybrid_chaotic_encryption ZeroWireload   tcb018g3d3wc_ccs
+  parameter_extraction_DATA_WIDTH8_OUT_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                             0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  input external delay                                              2.00       2.00 f
+  key[8] (in)                                             0.10      0.00       2.00 f
+  key[8] (net)                                  3                   0.00       2.00 f
+  para_extract/key[8] (parameter_extraction_DATA_WIDTH8_OUT_WIDTH12)     0.00     2.00 f
+  para_extract/key[8] (net)                                         0.00       2.00 f
+  para_extract/U102/Z (OR2D0)                             0.15      0.31       2.31 f
+  para_extract/add_31_carry_2_ (net)            2                   0.00       2.31 f
+  para_extract/U31/Z (AN2D0)                              0.16      0.25       2.56 f
+  para_extract/add_31_carry_3_ (net)            2                   0.00       2.56 f
+  para_extract/U148/Z (AN2D0)                             0.16      0.27       2.84 f
+  para_extract/add_31_carry_4_ (net)            2                   0.00       2.84 f
+  para_extract/U147/Z (OR2D0)                             0.19      0.35       3.19 f
+  para_extract/add_31_carry_5_ (net)            2                   0.00       3.19 f
+  para_extract/U146/Z (OR2D0)                             0.19      0.35       3.54 f
+  para_extract/add_31_carry_6_ (net)            2                   0.00       3.54 f
+  para_extract/U100/Z (AN2D0)                             0.18      0.27       3.81 f
+  para_extract/add_31_carry_7_ (net)            2                   0.00       3.81 f
+  para_extract/U99/ZN (XNR2D0)                            0.17      0.36       4.17 r
+  para_extract/n104 (net)                       1                   0.00       4.17 r
+  para_extract/U115/ZN (OAI22D1)                          0.23      0.15       4.33 f
+  para_extract/n91 (net)                        1                   0.00       4.33 f
+  para_extract/alpha_reg_7_/D (DFCNQD4)                   0.23      0.00       4.33 f
+  data arrival time                                                            4.33
+
+  clock clk (rise edge)                                            10.00      10.00
+  clock network delay (ideal)                                       0.00      10.00
+  para_extract/alpha_reg_7_/CP (DFCNQD4)                            0.00      10.00 r
+  library setup time                                               -0.07       9.93
+  data required time                                                           9.93
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           9.93
+  data arrival time                                                           -4.33
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  5.60
+
+
+  Startpoint: xor_mod/ciphertext_reg_0_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ciphertext[0]
+            (output port clocked by clk)
+  Path Group: REGOUT
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  keystream_control  ZeroWireload          tcb018g3d3wc_ccs
+  tent_map_core      ZeroWireload          tcb018g3d3wc_ccs
+  logistic_map_core  ZeroWireload          tcb018g3d3wc_ccs
+  tent50_map_core    ZeroWireload          tcb018g3d3wc_ccs
+  xor_module_DATA_WIDTH12 ZeroWireload     tcb018g3d3wc_ccs
+  random_sequence_generator_DATA_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+  data_control_DATA_WIDTH12 ZeroWireload   tcb018g3d3wc_ccs
+  hybrid_chaotic_encryption ZeroWireload   tcb018g3d3wc_ccs
+  parameter_extraction_DATA_WIDTH8_OUT_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                             0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  xor_mod/ciphertext_reg_0_/CP (DFCNQD4)                  0.00      0.00       0.00 r
+  xor_mod/ciphertext_reg_0_/Q (DFCNQD4)                   2.29      1.86       1.86 r
+  xor_mod/ciphertext[0] (net)                   1                   0.00       1.86 r
+  xor_mod/ciphertext[0] (xor_module_DATA_WIDTH12)                   0.00       1.86 r
+  ciphertext[0] (net)                                               0.00       1.86 r
+  ciphertext[0] (out)                                     2.29      0.00       1.86 r
+  data arrival time                                                            1.86
+
+  clock clk (rise edge)                                            10.00      10.00
+  clock network delay (ideal)                                       0.00      10.00
+  output external delay                                            -1.00       9.00
+  data required time                                                           9.00
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           9.00
+  data arrival time                                                           -1.86
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  7.14
+
+
+  Startpoint: ran_seq_gen/tent50_core/y_current_reg_4_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ran_seq_gen/tent50_core/y_current_reg_0_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  keystream_control  ZeroWireload          tcb018g3d3wc_ccs
+  tent_map_core      ZeroWireload          tcb018g3d3wc_ccs
+  logistic_map_core  ZeroWireload          tcb018g3d3wc_ccs
+  tent50_map_core    ZeroWireload          tcb018g3d3wc_ccs
+  xor_module_DATA_WIDTH12 ZeroWireload     tcb018g3d3wc_ccs
+  random_sequence_generator_DATA_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+  data_control_DATA_WIDTH12 ZeroWireload   tcb018g3d3wc_ccs
+  hybrid_chaotic_encryption ZeroWireload   tcb018g3d3wc_ccs
+  parameter_extraction_DATA_WIDTH8_OUT_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+  tent50_map_core_DW01_inc_3 ZeroWireload  tcb018g3d3wc_ccs
+  tent50_map_core_DW_div_uns_2 ZeroWireload tcb018g3d3wc_ccs
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                             0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  ran_seq_gen/tent50_core/y_current_reg_4_/CP (DFD4)      0.00      0.00       0.00 r
+  ran_seq_gen/tent50_core/y_current_reg_4_/QN (DFD4)      0.14      0.74       0.74 r
+  ran_seq_gen/tent50_core/n20 (net)             9                   0.00       0.74 r
+  ran_seq_gen/tent50_core/U4/ZN (OAI21D2)                 0.16      0.14       0.89 f
+  ran_seq_gen/tent50_core/n36 (net)             1                   0.00       0.89 f
+  ran_seq_gen/tent50_core/U18/ZN (AOI211D2)               0.36      0.33       1.21 r
+  ran_seq_gen/tent50_core/n37 (net)             1                   0.00       1.21 r
+  ran_seq_gen/tent50_core/U24/ZN (IINR4D2)                0.31      0.30       1.52 r
+  ran_seq_gen/tent50_core/n25 (net)             1                   0.00       1.52 r
+  ran_seq_gen/tent50_core/U17/ZN (CKND2D2)                0.20      0.18       1.70 f
+  ran_seq_gen/tent50_core/n12 (net)             5                   0.00       1.70 f
+  ran_seq_gen/tent50_core/U41/Z (XOR2D2)                  0.17      0.44       2.14 r
+  ran_seq_gen/tent50_core/N19 (net)             6                   0.00       2.14 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/A[1] (tent50_map_core_DW01_inc_3)     0.00     2.14 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/A[1] (net)           0.00       2.14 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/U5/ZN (CKND2D1)     0.19     0.16     2.30 f
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/n14 (net)     1      0.00       2.30 f
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/U12/ZN (NR3D2)     0.22     0.15     2.45 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/n13 (net)     1      0.00       2.45 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/U11/Z (XOR2D2)     0.15     0.38     2.83 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/SUM[11] (net)     3     0.00     2.83 r
+  ran_seq_gen/tent50_core/add_0_root_add_22_ni/SUM[11] (tent50_map_core_DW01_inc_3)     0.00     2.83 r
+  ran_seq_gen/tent50_core/one_minus_y[11] (net)                     0.00       2.83 r
+  ran_seq_gen/tent50_core/div_25/a[23] (tent50_map_core_DW_div_uns_2)     0.00     2.83 r
+  ran_seq_gen/tent50_core/div_25/a[23] (net)                        0.00       2.83 r
+  ran_seq_gen/tent50_core/div_25/U199/ZN (NR2D2)          0.10      0.07       2.90 f
+  ran_seq_gen/tent50_core/div_25/n106 (net)     1                   0.00       2.90 f
+  ran_seq_gen/tent50_core/div_25/U48/ZN (NR4D1)           0.39      0.20       3.10 r
+  ran_seq_gen/tent50_core/div_25/n61 (net)      2                   0.00       3.10 r
+  ran_seq_gen/tent50_core/div_25/U290/Z (OR2D2)           0.13      0.32       3.42 r
+  ran_seq_gen/tent50_core/div_25/n162 (net)     1                   0.00       3.42 r
+  ran_seq_gen/tent50_core/div_25/U114/ZN (ND2D3)          0.17      0.13       3.55 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_23__1_ (net)     4     0.00     3.55 f
+  ran_seq_gen/tent50_core/div_25/U292/ZN (IND2D2)         0.11      0.10       3.66 r
+  ran_seq_gen/tent50_core/div_25/n159 (net)     1                   0.00       3.66 r
+  ran_seq_gen/tent50_core/div_25/U348/ZN (ND3D2)          0.23      0.18       3.84 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_22__2_ (net)     2     0.00      3.84 f
+  ran_seq_gen/tent50_core/div_25/U294/ZN (ND3D1)          0.17      0.17       4.00 r
+  ran_seq_gen/tent50_core/div_25/n156 (net)     1                   0.00       4.00 r
+  ran_seq_gen/tent50_core/div_25/U288/ZN (IND2D1)         0.16      0.15       4.15 f
+  ran_seq_gen/tent50_core/div_25/n327 (net)     1                   0.00       4.15 f
+  ran_seq_gen/tent50_core/div_25/U355/ZN (CKND2D2)        0.18      0.15       4.30 r
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_22__1_ (net)     4     0.00     4.30 r
+  ran_seq_gen/tent50_core/div_25/U255/ZN (ND2D1)          0.17      0.15       4.46 f
+  ran_seq_gen/tent50_core/div_25/n90 (net)      1                   0.00       4.46 f
+  ran_seq_gen/tent50_core/div_25/U185/ZN (ND3D2)          0.19      0.12       4.58 r
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_21__2_ (net)     1     0.00      4.58 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_21_2/CO (FA1D1)     0.16     0.28     4.85 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_21__3_ (net)     2     0.00      4.85 r
+  ran_seq_gen/tent50_core/div_25/U21/Z (AN2D2)            0.13      0.26       5.11 r
+  ran_seq_gen/tent50_core/div_25/n288 (net)     2                   0.00       5.11 r
+  ran_seq_gen/tent50_core/div_25/U49/Z (CKMUX2D1)         0.20      0.45       5.56 r
+  ran_seq_gen/tent50_core/div_25/n7 (net)       2                   0.00       5.56 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_20_2/CO (FA1D2)     0.12     0.53     6.09 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_20__3_ (net)     1     0.00      6.09 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_20_3/CO (FA1D2)     0.15     0.26     6.35 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_20__4_ (net)     2     0.00      6.35 r
+  ran_seq_gen/tent50_core/div_25/U111/Z (AN2D4)           0.10      0.22       6.58 r
+  ran_seq_gen/tent50_core/div_25/n387 (net)     2                   0.00       6.58 r
+  ran_seq_gen/tent50_core/div_25/U20/Z (MUX2D2)           0.13      0.42       7.00 f
+  ran_seq_gen/tent50_core/div_25/n306 (net)     2                   0.00       7.00 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_19_2/CO (FA1D2)     0.11     0.56     7.55 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_19__3_ (net)     1     0.00      7.55 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_19_3/CO (FA1D2)     0.12     0.28     7.83 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_19__4_ (net)     1     0.00      7.83 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_19_4/CO (FA1D2)     0.12     0.28     8.11 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_19__5_ (net)     1     0.00      8.11 f
+  ran_seq_gen/tent50_core/div_25/U60/ZN (ND2D2)           0.13      0.11       8.22 r
+  ran_seq_gen/tent50_core/div_25/n386 (net)     2                   0.00       8.22 r
+  ran_seq_gen/tent50_core/div_25/U59/ZN (CKND1)           0.29      0.22       8.44 f
+  ran_seq_gen/tent50_core/div_25/n364 (net)     4                   0.00       8.44 f
+  ran_seq_gen/tent50_core/div_25/U2/Z (CKMUX2D4)          0.16      0.42       8.86 f
+  ran_seq_gen/tent50_core/div_25/n305 (net)     2                   0.00       8.86 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_18_2/CO (FA1D2)     0.11     0.56     9.42 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_18__3_ (net)     1     0.00      9.42 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_18_3/CO (FA1D2)     0.12     0.28     9.70 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_18__4_ (net)     1     0.00      9.70 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_18_4/CO (FA1D2)     0.12     0.28     9.98 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_18__5_ (net)     1     0.00      9.98 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_18_5/CO (FA1D2)     0.12     0.28    10.27 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_18__6_ (net)     3     0.00     10.27 f
+  ran_seq_gen/tent50_core/div_25/U170/ZN (ND3D1)          0.36      0.13      10.40 r
+  ran_seq_gen/tent50_core/div_25/n46 (net)      1                   0.00      10.40 r
+  ran_seq_gen/tent50_core/div_25/U169/Z (CKMUX2D2)        0.16      0.53      10.92 r
+  ran_seq_gen/tent50_core/div_25/n308 (net)     2                   0.00      10.92 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_17_2/CO (FA1D2)     0.12     0.52    11.44 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_17__3_ (net)     1     0.00     11.44 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_17_3/CO (FA1D2)     0.13     0.25    11.69 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_17__4_ (net)     1     0.00     11.69 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_17_4/CO (FA1D2)     0.13     0.25    11.94 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_17__5_ (net)     1     0.00     11.94 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_17_5/CO (FA1D2)     0.13     0.25    12.19 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_17__6_ (net)     1     0.00     12.19 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_17_6/CO (FA1D2)     0.12     0.25    12.44 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_17__7_ (net)     2     0.00     12.44 r
+  ran_seq_gen/tent50_core/div_25/U321/Z (AN2D2)           0.10      0.22      12.66 r
+  ran_seq_gen/tent50_core/div_25/n375 (net)     1                   0.00      12.66 r
+  ran_seq_gen/tent50_core/div_25/U112/Z (MUX2D2)          0.13      0.42      13.08 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_17__1_ (net)     2     0.00    13.08 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_1/CO (FA1D2)     0.11     0.28    13.37 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__2_ (net)     1     0.00     13.37 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_2/CO (FA1D2)     0.11     0.28    13.65 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__3_ (net)     1     0.00     13.65 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_3/CO (FA1D2)     0.12     0.28    13.92 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__4_ (net)     1     0.00     13.92 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_4/CO (FA1D2)     0.12     0.28    14.20 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__5_ (net)     1     0.00     14.20 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_5/CO (FA1D2)     0.12     0.28    14.49 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__6_ (net)     1     0.00     14.49 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_6/CO (FA1D2)     0.12     0.28    14.77 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__7_ (net)     1     0.00     14.77 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_16_7/CO (FA1D2)     0.13     0.30    15.06 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_16__8_ (net)     2     0.00     15.06 f
+  ran_seq_gen/tent50_core/div_25/U209/Z (AN2D4)           0.07      0.18      15.25 f
+  ran_seq_gen/tent50_core/div_25/n377 (net)     2                   0.00      15.25 f
+  ran_seq_gen/tent50_core/div_25/U281/Z (MUX2D4)          0.13      0.32      15.56 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_16__1_ (net)     2     0.00    15.56 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_1/CO (FA1D2)     0.11     0.28    15.85 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__2_ (net)     1     0.00     15.85 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_2/CO (FA1D2)     0.11     0.28    16.12 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__3_ (net)     1     0.00     16.12 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_3/CO (FA1D2)     0.12     0.28    16.40 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__4_ (net)     1     0.00     16.40 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_4/CO (FA1D2)     0.12     0.28    16.68 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__5_ (net)     1     0.00     16.68 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_5/CO (FA1D2)     0.12     0.28    16.96 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__6_ (net)     1     0.00     16.96 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_6/CO (FA1D2)     0.12     0.28    17.24 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__7_ (net)     1     0.00     17.24 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_7/CO (FA1D2)     0.11     0.28    17.52 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__8_ (net)     1     0.00     17.52 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_15_8/CO (FA1D2)     0.14     0.30    17.82 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_15__9_ (net)     2     0.00     17.82 f
+  ran_seq_gen/tent50_core/div_25/U229/ZN (CKND3)          0.11      0.10      17.92 r
+  ran_seq_gen/tent50_core/div_25/n102 (net)     1                   0.00      17.92 r
+  ran_seq_gen/tent50_core/div_25/U276/ZN (NR2D4)          0.09      0.06      17.98 f
+  ran_seq_gen/tent50_core/div_25/n379 (net)     2                   0.00      17.98 f
+  ran_seq_gen/tent50_core/div_25/U225/Z (MUX2D2)          0.13      0.29      18.27 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_15__1_ (net)     2     0.00    18.27 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_1/CO (FA1D2)     0.11     0.28    18.55 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__2_ (net)     1     0.00     18.55 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_2/CO (FA1D2)     0.11     0.28    18.83 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__3_ (net)     1     0.00     18.83 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_3/CO (FA1D2)     0.12     0.28    19.11 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__4_ (net)     1     0.00     19.11 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_4/CO (FA1D2)     0.12     0.28    19.39 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__5_ (net)     1     0.00     19.39 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_5/CO (FA1D2)     0.12     0.28    19.67 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__6_ (net)     1     0.00     19.67 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_6/CO (FA1D2)     0.12     0.28    19.95 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__7_ (net)     1     0.00     19.95 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_7/CO (FA1D2)     0.11     0.28    20.23 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__8_ (net)     1     0.00     20.23 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_8/CO (FA1D2)     0.12     0.28    20.51 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__9_ (net)     1     0.00     20.51 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_14_9/CO (FA1D2)     0.15     0.31    20.82 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_14__10_ (net)     1     0.00    20.82 f
+  ran_seq_gen/tent50_core/div_25/U40/ZN (ND2D4)           0.19      0.13      20.95 r
+  ran_seq_gen/tent50_core/div_25/n389 (net)     2                   0.00      20.95 r
+  ran_seq_gen/tent50_core/div_25/U105/ZN (INVD6)          0.11      0.11      21.06 f
+  ran_seq_gen/tent50_core/div_25/n362 (net)     9                   0.00      21.06 f
+  ran_seq_gen/tent50_core/div_25/U103/Z (MUX2D4)          0.13      0.33      21.38 f
+  ran_seq_gen/tent50_core/div_25/n309 (net)     2                   0.00      21.38 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_2/CO (FA1D1)     0.14     0.51    21.89 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__3_ (net)     1     0.00     21.89 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_3/CO (FA1D2)     0.12     0.29    22.18 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__4_ (net)     1     0.00     22.18 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_4/CO (FA1D2)     0.12     0.28    22.46 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__5_ (net)     1     0.00     22.46 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_5/CO (FA1D2)     0.12     0.28    22.74 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__6_ (net)     1     0.00     22.74 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_6/CO (FA1D2)     0.12     0.28    23.02 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__7_ (net)     1     0.00     23.02 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_7/CO (FA1D2)     0.11     0.28    23.30 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__8_ (net)     1     0.00     23.30 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_8/CO (FA1D2)     0.12     0.28    23.58 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__9_ (net)     1     0.00     23.58 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_9/CO (FA1D2)     0.12     0.28    23.86 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__10_ (net)     1     0.00    23.86 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_13_10/CO (FA1D2)     0.13     0.29    24.15 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_13__11_ (net)     3     0.00    24.15 f
+  ran_seq_gen/tent50_core/div_25/U149/Z (AN2D2)           0.09      0.21      24.36 f
+  ran_seq_gen/tent50_core/div_25/n37 (net)      2                   0.00      24.36 f
+  ran_seq_gen/tent50_core/div_25/U319/ZN (IND2D2)         0.16      0.11      24.47 r
+  ran_seq_gen/tent50_core/div_25/n155 (net)     1                   0.00      24.47 r
+  ran_seq_gen/tent50_core/div_25/U38/ZN (CKND2D4)         0.12      0.12      24.59 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_13__1_ (net)     4     0.00    24.59 f
+  ran_seq_gen/tent50_core/div_25/U236/ZN (ND2D1)          0.16      0.12      24.71 r
+  ran_seq_gen/tent50_core/div_25/n72 (net)      1                   0.00      24.71 r
+  ran_seq_gen/tent50_core/div_25/U191/ZN (ND3D2)          0.20      0.16      24.87 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__2_ (net)     1     0.00     24.87 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_2/CO (FA1D2)     0.11     0.30    25.17 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__3_ (net)     1     0.00     25.17 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_3/CO (FA1D2)     0.12     0.28    25.45 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__4_ (net)     1     0.00     25.45 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_4/CO (FA1D2)     0.12     0.28    25.73 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__5_ (net)     1     0.00     25.73 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_5/CO (FA1D2)     0.12     0.28    26.01 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__6_ (net)     1     0.00     26.01 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_6/CO (FA1D2)     0.12     0.28    26.29 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__7_ (net)     1     0.00     26.29 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_7/CO (FA1D2)     0.11     0.28    26.57 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__8_ (net)     1     0.00     26.57 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_8/CO (FA1D2)     0.12     0.28    26.85 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__9_ (net)     1     0.00     26.85 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_9/CO (FA1D2)     0.12     0.28    27.13 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__10_ (net)     1     0.00    27.13 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_12_10/CO (FA1D2)     0.15     0.31    27.44 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_12__11_ (net)     2     0.00    27.44 f
+  ran_seq_gen/tent50_core/div_25/U329/CO (FA1D2)          0.13      0.30      27.74 f
+  ran_seq_gen/tent50_core/div_25/n138 (net)     2                   0.00      27.74 f
+  ran_seq_gen/tent50_core/div_25/U453/Z (MUX2D1)          0.17      0.29      28.03 f
+  ran_seq_gen/tent50_core/div_25/n304 (net)     2                   0.00      28.03 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_1/CO (FA1D2)     0.11     0.29    28.32 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__2_ (net)     1     0.00     28.32 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_2/CO (FA1D1)     0.14     0.29    28.61 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__3_ (net)     1     0.00     28.61 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_3/CO (FA1D2)     0.12     0.29    28.90 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__4_ (net)     1     0.00     28.90 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_4/CO (FA1D2)     0.12     0.28    29.18 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__5_ (net)     1     0.00     29.18 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_5/CO (FA1D2)     0.12     0.28    29.46 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__6_ (net)     1     0.00     29.46 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_6/CO (FA1D2)     0.12     0.28    29.74 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__7_ (net)     1     0.00     29.74 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_7/CO (FA1D2)     0.11     0.28    30.02 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__8_ (net)     1     0.00     30.02 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_8/CO (FA1D2)     0.12     0.28    30.30 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__9_ (net)     1     0.00     30.30 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_9/CO (FA1D2)     0.12     0.28    30.58 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__10_ (net)     1     0.00    30.58 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_10/CO (FA1D2)     0.12     0.28    30.86 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__11_ (net)     1     0.00    30.86 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_11_11/CO (FA1D2)     0.13     0.30    31.16 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_11__12_ (net)     2     0.00    31.16 f
+  ran_seq_gen/tent50_core/div_25/U15/ZN (CKND2)           0.10      0.09      31.25 r
+  ran_seq_gen/tent50_core/div_25/n105 (net)     2                   0.00      31.25 r
+  ran_seq_gen/tent50_core/div_25/U181/ZN (CKND2D2)        0.37      0.26      31.51 f
+  ran_seq_gen/tent50_core/div_25/quotient[11] (net)     8           0.00      31.51 f
+  ran_seq_gen/tent50_core/div_25/U263/Z (CKMUX2D1)        0.20      0.38      31.88 f
+  ran_seq_gen/tent50_core/div_25/n181 (net)     2                   0.00      31.88 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_3/CO (FA1D2)     0.12     0.58    32.46 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__4_ (net)     1     0.00     32.46 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_4/CO (FA1D2)     0.12     0.28    32.74 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__5_ (net)     1     0.00     32.74 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_5/CO (FA1D2)     0.12     0.28    33.02 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__6_ (net)     1     0.00     33.02 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_6/CO (FA1D2)     0.12     0.28    33.30 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__7_ (net)     1     0.00     33.30 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_7/CO (FA1D2)     0.11     0.28    33.58 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__8_ (net)     1     0.00     33.58 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_8/CO (FA1D2)     0.12     0.28    33.86 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__9_ (net)     1     0.00     33.86 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_9/CO (FA1D2)     0.12     0.28    34.14 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__10_ (net)     1     0.00    34.14 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_10/CO (FA1D2)     0.12     0.28    34.42 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__11_ (net)     1     0.00    34.42 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_10_11/CO (FA1D2)     0.11     0.28    34.70 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_10__12_ (net)     2     0.00    34.70 f
+  ran_seq_gen/tent50_core/div_25/U301/Z (OR2D4)           0.16      0.31      35.01 f
+  ran_seq_gen/tent50_core/div_25/n324 (net)     9                   0.00      35.01 f
+  ran_seq_gen/tent50_core/div_25/U272/Z (MUX2D1)          0.17      0.29      35.30 f
+  ran_seq_gen/tent50_core/div_25/n158 (net)     2                   0.00      35.30 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_2/CO (FA1D1)     0.14     0.52    35.82 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__3_ (net)     1     0.00      35.82 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_3/CO (FA1D2)     0.12     0.29    36.11 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__4_ (net)     1     0.00      36.11 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_4/CO (FA1D2)     0.12     0.28    36.39 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__5_ (net)     1     0.00      36.39 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_5/CO (FA1D2)     0.12     0.28    36.67 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__6_ (net)     1     0.00      36.67 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_6/CO (FA1D2)     0.12     0.28    36.95 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__7_ (net)     1     0.00      36.95 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_7/CO (FA1D2)     0.11     0.28    37.23 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__8_ (net)     1     0.00      37.23 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_8/CO (FA1D2)     0.12     0.28    37.51 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__9_ (net)     1     0.00      37.51 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_9/CO (FA1D2)     0.12     0.28    37.79 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__10_ (net)     1     0.00     37.79 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_10/CO (FA1D2)     0.12     0.28    38.07 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__11_ (net)     1     0.00     38.07 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_9_11/CO (FA1D2)     0.14     0.31    38.38 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_9__12_ (net)     2     0.00     38.38 f
+  ran_seq_gen/tent50_core/div_25/U16/ZN (CKND3)           0.10      0.09      38.47 r
+  ran_seq_gen/tent50_core/div_25/n319 (net)     3                   0.00      38.47 r
+  ran_seq_gen/tent50_core/div_25/U268/ZN (CKND2D2)        0.10      0.09      38.55 f
+  ran_seq_gen/tent50_core/div_25/n397 (net)     1                   0.00      38.55 f
+  ran_seq_gen/tent50_core/div_25/U42/Z (MUX2D2)           0.13      0.30      38.85 f
+  ran_seq_gen/tent50_core/div_25/n179 (net)     2                   0.00      38.85 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_2/CO (FA1D1)     0.14     0.51    39.36 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__3_ (net)     1     0.00      39.36 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_3/CO (FA1D2)     0.12     0.29    39.65 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__4_ (net)     1     0.00      39.65 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_4/CO (FA1D2)     0.12     0.28    39.93 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__5_ (net)     1     0.00      39.93 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_5/CO (FA1D2)     0.12     0.28    40.21 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__6_ (net)     1     0.00      40.21 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_6/CO (FA1D2)     0.12     0.28    40.49 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__7_ (net)     1     0.00      40.49 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_7/CO (FA1D2)     0.11     0.28    40.77 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__8_ (net)     1     0.00      40.77 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_8/CO (FA1D2)     0.12     0.28    41.05 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__9_ (net)     1     0.00      41.05 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_9/CO (FA1D2)     0.12     0.28    41.33 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__10_ (net)     1     0.00     41.33 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_10/CO (FA1D2)     0.12     0.28    41.61 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__11_ (net)     1     0.00     41.61 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_8_11/CO (FA1D2)     0.15     0.31    41.92 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_8__12_ (net)     3     0.00     41.92 f
+  ran_seq_gen/tent50_core/div_25/U122/ZN (CKND2)          0.10      0.10      42.02 r
+  ran_seq_gen/tent50_core/div_25/n30 (net)      3                   0.00      42.02 r
+  ran_seq_gen/tent50_core/div_25/U18/Z (AO21D1)           0.12      0.21      42.23 r
+  ran_seq_gen/tent50_core/div_25/n101 (net)     1                   0.00      42.23 r
+  ran_seq_gen/tent50_core/div_25/U150/ZN (IND2D2)         0.11      0.20      42.43 r
+  ran_seq_gen/tent50_core/div_25/n87 (net)      1                   0.00      42.43 r
+  ran_seq_gen/tent50_core/div_25/U203/ZN (ND3D2)          0.20      0.16      42.59 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__2_ (net)     1     0.00      42.59 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_2/CO (FA1D1)     0.14     0.31    42.90 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__3_ (net)     1     0.00      42.90 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_3/CO (FA1D2)     0.12     0.29    43.18 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__4_ (net)     1     0.00      43.18 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_4/CO (FA1D2)     0.12     0.28    43.46 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__5_ (net)     1     0.00      43.46 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_5/CO (FA1D2)     0.12     0.28    43.74 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__6_ (net)     1     0.00      43.74 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_6/CO (FA1D2)     0.12     0.28    44.02 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__7_ (net)     1     0.00      44.02 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_7/CO (FA1D2)     0.11     0.28    44.30 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__8_ (net)     1     0.00      44.30 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_8/CO (FA1D2)     0.12     0.28    44.58 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__9_ (net)     1     0.00      44.58 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_9/CO (FA1D2)     0.12     0.28    44.86 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__10_ (net)     1     0.00     44.86 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_10/CO (FA1D2)     0.12     0.28    45.14 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__11_ (net)     1     0.00     45.14 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_7_11/CO (FA1D2)     0.12     0.29    45.43 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_7__12_ (net)     3     0.00     45.43 f
+  ran_seq_gen/tent50_core/div_25/U189/Z (OR2D1)           0.20      0.39      45.83 f
+  ran_seq_gen/tent50_core/div_25/quotient[7] (net)     3            0.00      45.83 f
+  ran_seq_gen/tent50_core/div_25/U311/Z (MUX2D1)          0.19      0.44      46.27 r
+  ran_seq_gen/tent50_core/div_25/n171 (net)     2                   0.00      46.27 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_3/CO (FA1D2)     0.13     0.53    46.79 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__4_ (net)     1     0.00      46.79 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_4/CO (FA1D2)     0.13     0.25    47.04 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__5_ (net)     1     0.00      47.04 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_5/CO (FA1D2)     0.13     0.25    47.30 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__6_ (net)     1     0.00      47.30 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_6/CO (FA1D2)     0.13     0.25    47.55 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__7_ (net)     1     0.00      47.55 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_7/CO (FA1D2)     0.12     0.25    47.80 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__8_ (net)     1     0.00      47.80 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_8/CO (FA1D2)     0.13     0.25    48.05 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__9_ (net)     1     0.00      48.05 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_9/CO (FA1D2)     0.13     0.25    48.30 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__10_ (net)     1     0.00     48.30 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_10/CO (FA1D2)     0.12     0.25    48.55 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__11_ (net)     1     0.00     48.55 r
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_6_11/CO (FA1D2)     0.13     0.26    48.81 r mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_6__12_ (net)     1     0.00     48.81 r
+  ran_seq_gen/tent50_core/div_25/U28/ZN (CKND3)           0.09      0.09      48.90 f
+  ran_seq_gen/tent50_core/div_25/n315 (net)     1                   0.00      48.90 f
+  ran_seq_gen/tent50_core/div_25/U162/ZN (IND2D4)         0.13      0.10      49.00 r
+  ran_seq_gen/tent50_core/div_25/n399 (net)     4                   0.00      49.00 r
+  ran_seq_gen/tent50_core/div_25/U300/Z (MUX2D1)          0.15      0.42      49.42 f
+  ran_seq_gen/tent50_core/div_25/n177 (net)     1                   0.00      49.42 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_2/CO (FA1D1)     0.14     0.52    49.93 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__3_ (net)     1     0.00      49.93 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_3/CO (FA1D2)     0.12     0.29    50.22 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__4_ (net)     1     0.00      50.22 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_4/CO (FA1D2)     0.12     0.28    50.50 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__5_ (net)     1     0.00      50.50 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_5/CO (FA1D2)     0.12     0.28    50.78 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__6_ (net)     1     0.00      50.78 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_6/CO (FA1D2)     0.12     0.28    51.06 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__7_ (net)     1     0.00      51.06 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_7/CO (FA1D2)     0.11     0.28    51.34 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__8_ (net)     1     0.00      51.34 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_8/CO (FA1D2)     0.12     0.28    51.62 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__9_ (net)     1     0.00      51.62 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_9/CO (FA1D2)     0.12     0.28    51.90 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__10_ (net)     1     0.00     51.90 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_10/CO (FA1D2)     0.12     0.28    52.18 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__11_ (net)     1     0.00     52.18 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_5_11/CO (FA1D2)     0.12     0.29    52.47 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_5__12_ (net)     1     0.00     52.47 f
+  ran_seq_gen/tent50_core/div_25/U64/ZN (CKND3)           0.09      0.09      52.55 r
+  ran_seq_gen/tent50_core/div_25/n316 (net)     2                   0.00      52.55 r
+  ran_seq_gen/tent50_core/div_25/U211/ZN (CKND2D2)        0.11      0.10      52.65 f
+  ran_seq_gen/tent50_core/div_25/n400 (net)     2                   0.00      52.65 f
+  ran_seq_gen/tent50_core/div_25/U65/Z (MUX2D2)           0.13      0.30      52.95 f
+  ran_seq_gen/tent50_core/div_25/n178 (net)     2                   0.00      52.95 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_2/CO (FA1D2)     0.11     0.53    53.48 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__3_ (net)     1     0.00      53.48 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_3/CO (FA1D2)     0.12     0.28    53.75 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__4_ (net)     1     0.00      53.75 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_4/CO (FA1D2)     0.12     0.28    54.04 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__5_ (net)     1     0.00      54.04 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_5/CO (FA1D2)     0.12     0.28    54.32 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__6_ (net)     1     0.00      54.32 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_6/CO (FA1D2)     0.12     0.28    54.60 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__7_ (net)     1     0.00      54.60 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_7/CO (FA1D2)     0.11     0.28    54.88 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__8_ (net)     1     0.00      54.88 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_8/CO (FA1D2)     0.12     0.28    55.16 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__9_ (net)     1     0.00      55.16 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_9/CO (FA1D2)     0.12     0.28    55.44 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__10_ (net)     1     0.00     55.44 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_10/CO (FA1D2)     0.12     0.28    55.72 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__11_ (net)     1     0.00     55.72 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_4_11/CO (FA1D2)     0.11     0.28    56.00 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_4__12_ (net)     2     0.00     56.00 f
+  ran_seq_gen/tent50_core/div_25/U297/Z (OR2D4)           0.13      0.28      56.28 f
+  ran_seq_gen/tent50_core/div_25/n322 (net)     5                   0.00      56.28 f
+  ran_seq_gen/tent50_core/div_25/U135/Z (MUX2D1)          0.16      0.28      56.56 f
+  ran_seq_gen/tent50_core/div_25/n180 (net)     3                   0.00      56.56 f
+  ran_seq_gen/tent50_core/div_25/U221/ZN (ND2D1)          0.17      0.14      56.70 r
+  ran_seq_gen/tent50_core/div_25/n67 (net)      1                   0.00      56.70 r
+  ran_seq_gen/tent50_core/div_25/U217/ZN (ND3D2)          0.19      0.17      56.87 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__3_ (net)     1     0.00      56.87 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_3/CO (FA1D2)     0.11     0.30    57.17 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__4_ (net)     1     0.00      57.17 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_4/CO (FA1D2)     0.12     0.28    57.45 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__5_ (net)     1     0.00      57.45 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_5/CO (FA1D2)     0.12     0.28    57.73 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__6_ (net)     1     0.00      57.73 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_6/CO (FA1D2)     0.12     0.28    58.01 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__7_ (net)     1     0.00      58.01 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_7/CO (FA1D2)     0.11     0.28    58.29 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__8_ (net)     1     0.00      58.29 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_8/CO (FA1D2)     0.12     0.28    58.57 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__9_ (net)     1     0.00      58.57 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_9/CO (FA1D2)     0.12     0.28    58.85 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__10_ (net)     1     0.00     58.85 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_10/CO (FA1D2)     0.12     0.28    59.13 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__11_ (net)     1     0.00     59.13 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_3_11/CO (FA1D2)     0.12     0.29    59.41 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_3__12_ (net)     1     0.00     59.41 f
+  ran_seq_gen/tent50_core/div_25/U72/ZN (CKND3)           0.15      0.12      59.54 r
+  ran_seq_gen/tent50_core/div_25/n318 (net)     5                   0.00      59.54 r
+  ran_seq_gen/tent50_core/div_25/U127/ZN (AOI21D2)        0.15      0.13      59.66 f
+  ran_seq_gen/tent50_core/div_25/n96 (net)      1                   0.00      59.66 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_1/CO (FA1D2)     0.12     0.30    59.96 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__2_ (net)     3     0.00      59.96 f
+  ran_seq_gen/tent50_core/div_25/U37/ZN (ND2D1)           0.21      0.13      60.09 r
+  ran_seq_gen/tent50_core/div_25/n100 (net)     1                   0.00      60.09 r
+  ran_seq_gen/tent50_core/div_25/U275/ZN (ND3D2)          0.19      0.17      60.27 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__3_ (net)     1     0.00      60.27 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_3/CO (FA1D2)     0.12     0.30    60.57 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__4_ (net)     1     0.00      60.57 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_4/CO (FA1D2)     0.12     0.28    60.85 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__5_ (net)     1     0.00      60.85 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_5/CO (FA1D2)     0.12     0.28    61.13 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__6_ (net)     1     0.00      61.13 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_6/CO (FA1D2)     0.12     0.28    61.41 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__7_ (net)     1     0.00      61.41 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_7/CO (FA1D2)     0.11     0.28    61.69 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__8_ (net)     1     0.00      61.69 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_8/CO (FA1D2)     0.12     0.28    61.97 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__9_ (net)     1     0.00      61.97 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_9/CO (FA1D2)     0.12     0.28    62.25 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__10_ (net)     1     0.00     62.25 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_10/CO (FA1D2)     0.12     0.28    62.53 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__11_ (net)     1     0.00     62.53 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_2_11/CO (FA1D2)     0.11     0.28    62.81 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_2__12_ (net)     1     0.00     62.81 f
+  ran_seq_gen/tent50_core/div_25/U269/ZN (IND2D4)         0.14      0.23      63.04 f
+  ran_seq_gen/tent50_core/div_25/n401 (net)     4                   0.00      63.04 f
+  ran_seq_gen/tent50_core/div_25/U67/ZN (ND2D2)           0.12      0.10      63.14 r
+  ran_seq_gen/tent50_core/div_25/n348 (net)     3                   0.00      63.14 r
+  ran_seq_gen/tent50_core/div_25/U341/ZN (IND2D1)         0.16      0.23      63.37 r
+  ran_seq_gen/tent50_core/div_25/n148 (net)     1                   0.00      63.37 r
+  ran_seq_gen/tent50_core/div_25/U334/ZN (ND3D2)          0.20      0.17      63.53 f
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__2_ (net)     1     0.00      63.53 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_2/CO (FA1D1)     0.14     0.31    63.84 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__3_ (net)     1     0.00      63.84 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_3/CO (FA1D2)     0.12     0.29    64.13 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__4_ (net)     1     0.00      64.13 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_4/CO (FA1D2)     0.12     0.28    64.41 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__5_ (net)     1     0.00      64.41 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_5/CO (FA1D2)     0.12     0.28    64.69 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__6_ (net)     1     0.00      64.69 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_6/CO (FA1D2)     0.12     0.28    64.97 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__7_ (net)     1     0.00      64.97 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_7/CO (FA1D2)     0.11     0.28    65.25 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__8_ (net)     1     0.00      65.25 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_8/CO (FA1D2)     0.12     0.28    65.53 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__9_ (net)     1     0.00      65.53 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_9/CO (FA1D2)     0.12     0.28    65.81 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__10_ (net)     1     0.00     65.81 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_10/CO (FA1D2)     0.12     0.28    66.09 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__11_ (net)     1     0.00     66.09 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_1_11/CO (FA1D2)     0.11     0.28    66.37 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_1__12_ (net)     2     0.00     66.37 f
+  ran_seq_gen/tent50_core/div_25/U332/Z (OR2D4)           0.10      0.25      66.62 f
+  ran_seq_gen/tent50_core/div_25/n141 (net)     3                   0.00      66.62 f
+  ran_seq_gen/tent50_core/div_25/U6/Z (CKMUX2D4)          0.14      0.35      66.97 f
+  ran_seq_gen/tent50_core/div_25/u_div_PartRem_1__3_ (net)     1     0.00     66.97 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_3/CO (FA1D2)     0.11     0.53    67.51 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__4_ (net)     1     0.00      67.51 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_4/CO (FA1D2)     0.12     0.28    67.78 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__5_ (net)     1     0.00      67.78 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_5/CO (FA1D2)     0.12     0.28    68.06 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__6_ (net)     1     0.00      68.06 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_6/CO (FA1D2)     0.12     0.28    68.34 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__7_ (net)     1     0.00      68.34 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_7/CO (FA1D2)     0.11     0.28    68.62 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__8_ (net)     1     0.00      68.62 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_8/CO (FA1D2)     0.12     0.28    68.90 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__9_ (net)     1     0.00      68.90 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_9/CO (FA1D2)     0.12     0.28    69.18 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__10_ (net)     1     0.00     69.18 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_10/CO (FA1D2)     0.12     0.28    69.46 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__11_ (net)     1     0.00     69.46 f
+  ran_seq_gen/tent50_core/div_25/u_div_u_fa_PartRem_0_0_11/CO (FA1D2)     0.10     0.27    69.73 f mo 
+  ran_seq_gen/tent50_core/div_25/u_div_CryTmp_0__12_ (net)     1     0.00     69.73 f
+  ran_seq_gen/tent50_core/div_25/U473/ZN (CKND2)          0.07      0.07      69.81 r
+  ran_seq_gen/tent50_core/div_25/n312 (net)     1                   0.00      69.81 r
+  ran_seq_gen/tent50_core/div_25/U363/ZN (CKND2D2)        0.12      0.09      69.89 f
+  ran_seq_gen/tent50_core/div_25/quotient[0] (net)     1            0.00      69.89 f
+  ran_seq_gen/tent50_core/div_25/quotient[0] (tent50_map_core_DW_div_uns_2)     0.00    69.89 f
+  ran_seq_gen/tent50_core/div2[0] (net)                             0.00      69.89 f
+  ran_seq_gen/tent50_core/U3/ZN (ND2D2)                   0.14      0.09      69.98 r
+  ran_seq_gen/tent50_core/n133 (net)            1                   0.00      69.98 r
+  ran_seq_gen/tent50_core/U51/ZN (CKND2D2)                0.09      0.08      70.07 f
+  ran_seq_gen/tent50_core/n117 (net)            1                   0.00      70.07 f
+  ran_seq_gen/tent50_core/y_current_reg_0_/D (DFD2)       0.09      0.00      70.07 f
+  data arrival time                                                           70.07
+
+  clock clk (rise edge)                                            10.00      10.00
+  clock network delay (ideal)                                       0.00      10.00
+  ran_seq_gen/tent50_core/y_current_reg_0_/CP (DFD2)                0.00      10.00 r
+  library setup time                                               -0.06       9.94
+  data required time                                                           9.94
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           9.94
+  data arrival time                                                          -70.07
+  ---------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                           -60.13
+
+
+1

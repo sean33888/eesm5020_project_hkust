@@ -1,0 +1,75 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : hybrid_chaotic_encryption
+Version: P-2019.03-SP5
+Date   : Sun May 25 18:51:58 2025
+****************************************
+
+
+Library(s) Used:
+
+    tcb018g3d3wc_ccs (File: /afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.db)
+
+
+Operating Conditions: WCCOM   Library: tcb018g3d3wc_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+hybrid_chaotic_encryption ZeroWireload   tcb018g3d3wc_ccs
+parameter_extraction_DATA_WIDTH8_OUT_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+data_control_DATA_WIDTH12 ZeroWireload   tcb018g3d3wc_ccs
+random_sequence_generator_DATA_WIDTH12 ZeroWireload tcb018g3d3wc_ccs
+xor_module_DATA_WIDTH12 ZeroWireload     tcb018g3d3wc_ccs
+tent50_map_core        ZeroWireload      tcb018g3d3wc_ccs
+logistic_map_core      ZeroWireload      tcb018g3d3wc_ccs
+tent_map_core          ZeroWireload      tcb018g3d3wc_ccs
+keystream_control      ZeroWireload      tcb018g3d3wc_ccs
+logistic_map_core_DW01_inc_0 ZeroWireload tcb018g3d3wc_ccs
+logistic_map_core_DW02_mult_0 ZeroWireload tcb018g3d3wc_ccs
+logistic_map_core_DW01_add_0_DW01_add_2 ZeroWireload tcb018g3d3wc_ccs
+logistic_map_core_DW02_mult_1 ZeroWireload tcb018g3d3wc_ccs
+logistic_map_core_DW01_add_1_DW01_add_3 ZeroWireload tcb018g3d3wc_ccs
+tent50_map_core_DW_div_uns_2 ZeroWireload tcb018g3d3wc_ccs
+tent50_map_core_DW01_inc_3 ZeroWireload  tcb018g3d3wc_ccs
+tent_map_core_DW01_inc_3 ZeroWireload    tcb018g3d3wc_ccs
+tent50_map_core_DW_div_uns_3 ZeroWireload tcb018g3d3wc_ccs
+tent50_map_core_DW01_inc_6 ZeroWireload  tcb018g3d3wc_ccs
+tent_map_core_DW01_inc_4 ZeroWireload    tcb018g3d3wc_ccs
+
+
+Global Operating Voltage = 2.97 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  15.1118 mW   (86%)
+  Net Switching Power  =   2.5530 mW   (14%)
+                         ---------
+Total Dynamic Power    =  17.6647 mW  (100%)
+
+Cell Leakage Power     = 571.1299 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           7.8789        8.5950e-02           44.4217            7.9649  (  45.09%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      7.2329            2.4670          526.7082            9.7004  (  54.91%)
+--------------------------------------------------------------------------------------------------
+Total             15.1118 mW         2.5530 mW       571.1299 nW        17.6653 mW
+1
