@@ -1,0 +1,847 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version P-2019.03-SP5 for linux64 - Oct 17, 2019 
+
+                    Copyright (c) 1988 - 2019 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /staff/ee/kjyu/.synopsys_dv_prefs.tcl
+################################################################################
+# Filename: dc.tcl
+# Author: TIAN Fengshi
+# Email: fengshi.tian@connect.ust.hk
+# Affiliation: Hong Kong University of Science and Technology
+# -------------------------------------------------------------------------------
+# This is the template Design Compiler script for ELEC5160/EESM5020.
+################################################################################
+################################################################################
+# Step 0: create directories for results and reports
+################################################################################
+file mkdir reports; # store area, timing, power reports
+file mkdir results; # store design
+################################################################################
+# Step 1: digital standard cell library set up
+# You should specify the following paths accordingly:
+# - search_path
+# - target_library
+# - link_library
+################################################################################
+set_app_var search_path ". /afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/ ../rtl $search_path"
+. /afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/ ../rtl . /usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn /usr/eelocal/synopsys/syn-vp2019.03-sp5/dw/syn_ver /usr/eelocal/synopsys/syn-vp2019.03-sp5/dw/sim_ver
+set_app_var target_library "tcb018g3d3wc_ccs.db"
+tcb018g3d3wc_ccs.db
+# set_app_var synthetic_library dw_foundation.sldb
+set_app_var link_library "* $target_library"
+* tcb018g3d3wc_ccs.db
+################################################################################
+# Step 2: import design
+# You should specify the HDL files for your design accordingly.
+# Note: the HDL files should be located in the search_path you defined above.
+# Please do NOT import testbench or behavior memory model here.
+################################################################################
+define_design_lib WORK -path ./WORK
+1
+analyze -format verilog {data_control.v hybrid_chaotic_encryption.v keystream_control.v logistic_map_core.v parameter_extraction.v random_sequence_generator.v tent50_map_core.v tent_map_core.v xor_module.v}
+Running PRESTO HDLC
+Compiling source file ../rtl/data_control.v
+Compiling source file ../rtl/hybrid_chaotic_encryption.v
+Warning:  ../rtl/hybrid_chaotic_encryption.v:26: the undeclared symbol 'plaintext_valid_out' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/hybrid_chaotic_encryption.v:28: the undeclared symbol 'key_valid_out' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/hybrid_chaotic_encryption.v:37: the undeclared symbol 'done' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/hybrid_chaotic_encryption.v:45: the undeclared symbol 'valid' assumed to have the default net type, which is 'wire'. (VER-936)
+Compiling source file ../rtl/keystream_control.v
+Compiling source file ../rtl/logistic_map_core.v
+Compiling source file ../rtl/parameter_extraction.v
+Compiling source file ../rtl/random_sequence_generator.v
+Warning:  ../rtl/random_sequence_generator.v:19: the undeclared symbol 'flag1' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/random_sequence_generator.v:24: the undeclared symbol 'done1' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/random_sequence_generator.v:37: the undeclared symbol 'done2' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/random_sequence_generator.v:43: the undeclared symbol 'flag2' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/random_sequence_generator.v:48: the undeclared symbol 'done3' assumed to have the default net type, which is 'wire'. (VER-936)
+Compiling source file ../rtl/tent50_map_core.v
+Compiling source file ../rtl/tent_map_core.v
+Compiling source file ../rtl/xor_module.v
+Presto compilation completed successfully.
+Loading db file '/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+elaborate hybrid_chaotic_encryption; # top module name
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/gtech.db'
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/standard.sldb'
+  Loading link library 'tcb018g3d3wc_ccs'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (hybrid_chaotic_encryption)
+Elaborated 1 design.
+Current design is now 'hybrid_chaotic_encryption'.
+Information: Building the design 'parameter_extraction' instantiated from design 'hybrid_chaotic_encryption' with
+	the parameters "DATA_WIDTH=8,OUT_WIDTH=12". (HDL-193)
+
+Inferred memory devices in process
+	in routine parameter_extraction_DATA_WIDTH8_OUT_WIDTH12 line 18 in file
+		'../rtl/parameter_extraction.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+|         mu_reg          | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        alpha_reg        | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|         y0_reg          | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    precision_sel_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|          k_reg          | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        temp_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|    key_valid_out_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| plaintext_valid_out_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    plaintext_out_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (parameter_extraction_DATA_WIDTH8_OUT_WIDTH12)
+Information: Building the design 'data_control' instantiated from design 'hybrid_chaotic_encryption' with
+	the parameters "DATA_WIDTH=12". (HDL-193)
+
+Inferred memory devices in process
+	in routine data_control_DATA_WIDTH12 line 24 in file
+		'../rtl/data_control.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   instruction_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (data_control_DATA_WIDTH12)
+Information: Building the design 'random_sequence_generator' instantiated from design 'hybrid_chaotic_encryption' with
+	the parameters "DATA_WIDTH=12". (HDL-193)
+
+Inferred memory devices in process
+	in routine random_sequence_generator_DATA_WIDTH12 line 58 in file
+		'../rtl/random_sequence_generator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     key_out_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (random_sequence_generator_DATA_WIDTH12)
+Information: Building the design 'xor_module' instantiated from design 'hybrid_chaotic_encryption' with
+	the parameters "DATA_WIDTH=12". (HDL-193)
+
+Inferred memory devices in process
+	in routine xor_module_DATA_WIDTH12 line 25 in file
+		'../rtl/xor_module.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| ciphertext_valid_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    ciphertext_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (xor_module_DATA_WIDTH12)
+Information: Building the design 'tent50_map_core'. (HDL-193)
+
+Inferred memory devices in process
+	in routine tent50_map_core line 27 in file
+		'../rtl/tent50_map_core.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      done1_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   iter_count_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      start_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    y_current_reg    | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      key1_reg       | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (tent50_map_core)
+Information: Building the design 'logistic_map_core'. (HDL-193)
+Warning:  ../rtl/logistic_map_core.v:25: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 35 in file
+	'../rtl/logistic_map_core.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            43            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine logistic_map_core line 35 in file
+		'../rtl/logistic_map_core.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     keyout_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|    x_current_reg    | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|   iter_count_reg    | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|      done2_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (logistic_map_core)
+Information: Building the design 'tent_map_core'. (HDL-193)
+
+Inferred memory devices in process
+	in routine tent_map_core line 23 in file
+		'../rtl/tent_map_core.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      done3_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      start_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    y_current_reg    | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      key3_reg       | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (tent_map_core)
+Information: Building the design 'keystream_control'. (HDL-193)
+
+Statistics for case statements in always block at line 31 in file
+	'../rtl/keystream_control.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            41            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine keystream_control line 31 in file
+		'../rtl/keystream_control.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      state_reg      | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|     key_out_reg     | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      order_reg      | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|      flag1_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      key2_reg       | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|      flag2_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (keystream_control)
+1
+# store the unmapped results
+write -hierarchy -format ddc -output results/encoder.unmapped.ddc
+Writing ddc file 'results/encoder.unmapped.ddc'.
+1
+################################################################################
+# Step 3: constrain your design
+# You should specify the critical path, the input & output delay and the
+# environment attribute of your design, so that Design Compiler can correctly
+# synthesize your design with the required specfication.
+################################################################################
+# All the constraints are written in the following tcl script
+source design_top.constraints.tcl
+1
+################################################################################
+# Create default path groups
+#
+# Seperate these paths can help improve optimization results.
+################################################################################
+set ports_clock_root   [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+{clk}
+group_path -name REGOUT -to [all_outputs]
+1
+group_path -name REGIN -from [remove_from_collection [all_inputs]   ${ports_clock_root}]
+1
+group_path -name FEEDTHROUGH -from   [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+1
+################################################################################
+# Apply Additional Optimization Constraints
+################################################################################
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+################################################################################
+# Check for Design Errors. It is a good habit to check the design before you run
+# the synthesis.
+################################################################################
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     P-2019.03-SP5
+Date:        Sun May 25 18:47:56 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     48
+    Unconnected ports (LINT-28)                                    12
+    Feedthrough (LINT-29)                                          36
+
+Cells                                                               4
+    Cells do not drive (LINT-1)                                     4
+
+Nets                                                               13
+    Unloaded nets (LINT-2)                                         13
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > reports/encoder.check_design.rpt; # dump to the file
+################################################################################
+# Step 4: compile the design
+# There exits lots of option for compile command. Please check the manual of
+# compile for further info.
+################################################################################
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | P-2019.03-DWBB_201903.4 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 65 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'xor_module_DATA_WIDTH12'
+  Processing 'keystream_control'
+  Processing 'tent_map_core'
+  Processing 'logistic_map_core'
+  Processing 'tent50_map_core'
+  Processing 'random_sequence_generator_DATA_WIDTH12'
+  Processing 'data_control_DATA_WIDTH12'
+  Processing 'parameter_extraction_DATA_WIDTH8_OUT_WIDTH12'
+Information: The register 'alpha_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'y0_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'y0_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'y0_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'k_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'k_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'k_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'k_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'temp_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'temp_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'temp_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'temp_reg[8]' is a constant and will be removed. (OPT-1206)
+  Processing 'hybrid_chaotic_encryption'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'tent_map_core_DW01_cmp2_0'
+  Processing 'tent_map_core_DW_div_uns_0'
+  Processing 'tent_map_core_DW_div_uns_1'
+  Processing 'logistic_map_core_DW01_inc_0'
+  Processing 'logistic_map_core_DW01_cmp6_0'
+  Processing 'logistic_map_core_DW01_cmp2_0_DW01_cmp2_1'
+  Processing 'logistic_map_core_DW01_sub_0'
+  Processing 'tent50_map_core_DW01_inc_0_DW01_inc_1'
+  Processing 'tent50_map_core_DW01_cmp2_0_DW01_cmp2_2'
+  Processing 'tent50_map_core_DW01_cmp2_1_DW01_cmp2_3'
+  Processing 'tent50_map_core_DW_div_uns_0_DW_div_uns_2'
+  Processing 'tent50_map_core_DW_div_uns_1_DW_div_uns_3'
+  Processing 'tent50_map_core_DW01_cmp6_0_DW01_cmp6_1'
+  Processing 'parameter_extraction_DATA_WIDTH8_OUT_WIDTH12_DW01_cmp2_0_DW01_cmp2_4'
+  Processing 'parameter_extraction_DATA_WIDTH8_OUT_WIDTH12_DW01_add_0'
+  Processing 'parameter_extraction_DATA_WIDTH8_OUT_WIDTH12_DW01_add_1'
+  Processing 'tent_map_core_DW01_inc_0_DW01_inc_2'
+  Processing 'tent_map_core_DW01_sub_0_DW01_sub_1'
+  Processing 'tent_map_core_DW01_inc_1_DW01_inc_3'
+  Processing 'tent_map_core_DW01_sub_1_DW01_sub_2'
+  Processing 'tent50_map_core_DW01_inc_1_DW01_inc_4'
+  Processing 'tent50_map_core_DW01_sub_0_DW01_sub_3'
+  Processing 'tent50_map_core_DW01_inc_2_DW01_inc_5'
+  Processing 'tent50_map_core_DW01_sub_1_DW01_sub_4'
+  Processing 'logistic_map_core_DW02_mult_0'
+  Processing 'logistic_map_core_DW01_add_0_DW01_add_2'
+  Processing 'logistic_map_core_DW02_mult_1'
+  Processing 'logistic_map_core_DW01_add_1_DW01_add_3'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:19  206150.9     70.36    1333.9      18.3                          
+    0:00:20  205772.7     70.66    1640.3      18.2                          
+    0:00:20  205772.7     70.66    1640.3      18.2                          
+    0:00:20  205792.5     70.34    1633.3      18.2                          
+    0:00:20  205792.5     70.34    1633.3      18.2                          
+    0:00:22  185214.4     74.03    1699.7      18.3                          
+    0:00:23  184514.4     73.95    1686.9      18.3                          
+    0:00:23  183628.2     73.81    1684.9      18.3                          
+    0:00:23  183726.9     73.73    1682.8      18.3                          
+    0:00:24  183676.1     73.77    1683.5      18.3                          
+    0:00:24  183732.6     73.73    1682.8      18.3                          
+    0:00:24  183676.1     73.77    1683.5      18.3                          
+    0:00:24  183732.6     73.73    1682.8      18.3                          
+    0:00:24  183676.1     73.77    1683.5      18.3                          
+    0:00:24  183732.6     73.73    1682.8      18.3                          
+    0:00:25  183732.6     73.73    1682.8      18.3                          
+    0:00:25  183732.6     73.73    1682.8      18.3                          
+    0:00:25  183732.6     73.73    1682.8      18.3                          
+    0:00:25  183873.7     73.68    1682.0       0.0                          
+    0:00:25  183873.7     73.68    1682.0       0.0                          
+    0:00:25  183873.7     73.68    1682.0       0.0                          
+    0:00:25  183873.7     73.68    1682.0       0.0                          
+    0:00:25  184898.2     71.52    1658.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:25  185112.7     71.22    1654.6       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:25  185112.7     71.22    1654.6       0.0                          
+    0:00:29  187353.7     69.83    1624.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:30  187630.3     69.41    1612.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:31  187757.3     69.17    1608.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:31  187811.0     69.12    1607.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:32  187864.6     69.08    1606.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:32  188019.8     69.02    1605.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:32  188031.1     68.92    1603.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:32  188076.3     68.87    1601.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:32  188090.4     68.80    1599.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:34  188062.2     68.75    1597.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:35  188488.3     68.52    1596.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:36  188556.1     68.47    1594.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:36  188640.7     68.30    1591.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:39  188722.6     68.24    1590.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:39  188731.1     68.23    1589.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:39  188911.7     68.16    1588.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:39  189016.1     67.99    1587.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:39  189397.2     67.93    1586.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:39  189473.4     67.76    1584.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:40  189608.8     67.74    1584.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:40  190023.7     67.63    1581.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:40  190370.9     67.52    1578.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:40  190616.4     67.38    1575.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:40  190678.5     67.31    1573.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:40  190768.8     67.22    1572.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:41  191149.9     67.09    1571.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:41  191389.8     67.04    1570.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:41  191796.2     67.00    1567.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:41  191988.1     66.81    1564.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:41  192225.2     66.75    1563.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:42  192611.9     66.63    1561.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:42  192823.5     66.55    1559.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:42  192891.3     66.50    1558.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:42  192953.4     66.46    1557.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:42  193035.2     66.40    1557.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:43  192956.2     66.36    1556.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:43  193074.7     66.30    1555.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:43  193083.2     66.25    1553.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:43  192950.6     66.23    1553.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:43  193088.8     66.16    1551.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:43  193210.2     66.07    1549.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:44  193258.2     66.00    1547.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:44  193368.3     65.91    1544.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:44  193407.8     65.80    1543.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:44  193345.7     65.75    1541.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:44  193478.3     65.68    1540.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:45  193723.9     65.62    1538.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:45  193752.1     65.54    1535.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:45  193915.8     65.45    1534.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:45  194144.4     65.41    1534.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:45  194387.2     65.35    1532.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:46  194438.0     65.21    1530.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:46  194469.0     65.18    1529.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:46  194703.3     65.16    1529.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:46  194663.7     65.13    1529.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:46  194612.9     65.07    1526.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:46  194539.6     65.01    1525.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:47  194533.9     64.96    1524.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:47  194508.5     64.92    1523.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:47  194485.9     64.92    1523.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:47  194373.0     64.92    1523.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:47  194356.1     64.92    1523.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:48  194294.0     64.92    1523.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:48  194209.3     64.92    1523.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:48  194192.4     64.92    1523.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:48  194068.2     64.92    1523.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:53  194088.0     64.90    1523.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:53  194322.2     64.69    1519.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:55  194423.8     64.50    1515.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:56  194003.3     64.36    1511.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:57  193994.8     64.15    1506.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:00:58  194152.9     64.06    1505.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:59  194296.8     63.98    1503.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:00:59  194271.4     63.90    1501.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:01  194271.4     63.78    1498.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:02  194356.1     63.72    1497.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:03  194401.3     63.71    1497.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:04  194381.5     63.67    1496.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:05  194381.5     63.67    1495.8       0.0                          
+    0:01:05  194285.5     63.67    1495.8       0.0                          
+    0:01:06  194282.7     63.67    1495.8       0.0                          
+    0:01:08  194325.1     63.62    1494.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:09  194336.4     63.59    1493.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:09  194401.3     63.58    1493.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:09  194415.4     63.53    1492.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:10  194384.3     63.51    1492.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:10  194491.6     63.44    1490.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:12  194660.9     63.33    1487.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:13  194500.0     63.28    1487.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:14  194550.9     63.24    1487.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:16  194708.9     63.14    1484.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:16  194638.3     63.09    1483.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:18  194708.9     63.02    1481.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:19  194677.9     63.01    1481.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:20  194672.2     62.98    1481.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:20  194629.9     62.97    1481.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:20  194663.7     62.94    1480.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:21  194703.3     62.91    1480.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:22  194751.2     62.86    1479.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:22  194759.7     62.83    1478.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:23  194723.0     62.79    1477.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:23  194765.4     62.76    1475.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:24  194844.4     62.69    1474.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:24  194833.1     62.67    1474.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:25  195030.7     62.60    1473.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:25  195070.2     62.57    1472.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:27  195070.2     62.55    1472.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:27  195036.3     62.51    1472.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:28  195118.2     62.43    1470.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:28  195089.9     62.35    1468.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:28  195332.7     62.33    1468.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:28  195459.7     62.31    1468.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:29  195473.8     62.28    1466.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:30  195431.4     62.24    1467.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:31  195516.1     62.23    1467.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:31  195614.9     62.20    1466.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:32  195617.7     62.19    1466.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:33  195617.7     62.18    1465.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:33  195595.1     62.17    1465.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:34  195609.3     62.16    1465.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:36  195637.5     62.08    1463.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:36  195631.8     62.03    1462.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:37  195710.9     62.01    1462.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:38  195696.7     62.00    1461.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:39  195719.3     61.99    1461.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:40  195708.0     61.99    1461.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:40  195722.1     61.99    1461.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:40  195713.7     61.92    1461.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:41  195787.1     61.91    1461.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:41  195809.6     61.88    1460.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:41  195857.6     61.87    1460.0       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:41  195877.4     61.84    1459.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:41  195900.0     61.79    1458.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:41  195891.5     61.78    1458.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:42  195902.8     61.77    1457.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:42  196083.4     61.76    1457.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:42  196049.5     61.74    1457.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:42  196106.0     61.72    1456.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:42  196371.3     61.69    1425.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:43  196430.6     61.63    1424.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:43  196625.3     61.57    1423.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:43  196619.7     61.54    1422.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:43  196628.1     61.52    1422.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:43  196732.6     61.51    1422.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:43  196726.9     61.50    1421.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:43  196791.8     61.47    1420.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:44  196783.4     61.43    1419.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:44  196868.0     61.41    1419.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:44  196955.5     61.39    1419.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:44  196975.3     61.37    1419.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:44  197051.5     61.35    1418.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:44  197187.0     61.31    1418.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:45  197139.0     61.29    1418.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:45  197147.5     61.27    1417.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:45  197184.2     61.24    1417.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:45  197181.3     61.22    1416.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:45  197203.9     61.20    1416.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:45  197161.6     61.18    1415.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:45  197150.3     61.15    1415.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:45  197141.8     61.13    1414.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:46  197150.3     61.12    1414.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:46  197235.0     61.06    1413.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:46  197271.6     61.04    1413.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:46  197297.0     61.03    1413.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:46  197280.1     61.01    1412.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197277.3     61.01    1412.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:47  197449.5     61.00    1410.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197477.7     60.96    1410.1       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197669.6     60.94    1409.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197683.7     60.94    1409.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197692.2     60.92    1409.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:01:47  197776.9     60.89    1409.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:48  197745.8     60.87    1408.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:48  197779.7     60.85    1408.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:48  197799.4     60.84    1408.0       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:48  197875.6     60.82    1407.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:48  197906.7     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:49  197855.9     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:49  197807.9     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:49  197796.6     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:50  197785.3     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:50  197759.9     60.81    1406.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:01:54  197737.3     60.81    1406.6       0.0                          
+    0:01:54  197717.6     60.81    1406.4       0.0                          
+    0:01:55  197759.9     60.81    1405.1       0.0                          
+    0:01:55  197754.3     60.81    1404.7       0.0                          
+    0:01:55  197692.2     60.81    1404.2       0.0                          
+    0:01:55  197700.7     60.81    1402.3       0.0                          
+    0:01:56  197703.5     60.81    1402.1       0.0                          
+    0:01:56  197703.5     60.81    1402.1       0.0                          
+    0:01:56  197703.5     60.81    1402.1       0.0                          
+    0:01:56  197737.3     60.81    1401.6       0.0                          
+    0:01:56  197757.1     60.81    1401.2       0.0                          
+    0:01:56  197751.5     60.81    1401.0       0.0                          
+    0:01:56  197728.9     60.81    1401.0       0.0                          
+    0:01:56  197765.6     60.81    1343.1       0.0                          
+    0:01:57  197737.3     60.81    1343.0       0.0                          
+    0:01:57  197759.9     60.81    1342.6       0.0                          
+    0:01:57  197799.4     60.81    1342.0       0.0                          
+    0:01:58  197878.5     60.81    1286.9       0.0                          
+    0:01:58  198047.8     60.80    1286.9       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:58  198047.8     60.80    1286.9       0.0                          
+    0:01:58  198047.8     60.80    1286.9       0.0                          
+    0:01:58  197113.6     60.79    1287.1       0.0                          
+    0:01:58  196893.4     60.79    1287.2       0.0                          
+    0:01:58  196845.5     60.79    1287.3       0.0                          
+    0:01:58  196837.0     60.79    1287.3       0.0                          
+    0:01:58  196828.5     60.79    1287.3       0.0                          
+    0:01:58  196828.5     60.79    1287.3       0.0                          
+    0:01:58  196828.5     60.79    1287.3       0.0                          
+    0:01:59  196043.9     61.20    1289.4       0.0                          
+    0:01:59  195507.6     61.20    1289.5       0.0                          
+    0:01:59  195459.7     61.18    1289.3       0.0                          
+    0:01:59  195456.8     61.18    1289.3       0.0                          
+    0:01:59  195456.8     61.18    1289.3       0.0                          
+    0:01:59  195456.8     61.18    1289.3       0.0                          
+    0:01:59  195456.8     61.18    1289.3       0.0                          
+    0:01:59  195456.8     61.18    1289.3       0.0                          
+    0:02:00  195499.2     61.10    1288.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:00  195575.4     61.04    1288.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:00  195662.9     60.98    1288.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:01  195637.5     60.79    1290.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:02  195679.8     60.73    1290.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:02  195598.0     60.70    1288.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:03  195614.9     60.65    1288.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:04  195739.1     60.61    1287.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:05  195823.8     60.60    1287.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:05  195902.8     60.57    1286.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:06  195868.9     60.57    1286.8       0.0                          
+    0:02:07  195795.5     60.57    1286.0       0.0                          
+    0:02:07  195558.4     60.57    1285.9       0.0                          
+    0:02:07  195471.0     60.57    1285.6       0.0                          
+    0:02:07  195420.2     60.57    1285.6       0.0                          
+    0:02:08  195363.7     60.57    1285.6       0.0                          
+    0:02:08  195423.0     60.56    1285.5       0.0                          
+    0:02:08  195640.3     60.56    1285.4       0.0                          
+    0:02:08  196097.5     60.53    1284.6       0.0                          
+    0:02:08  196083.4     60.52    1284.6       0.0                          
+    0:02:08  196187.8     60.50    1284.3       0.0                          
+    0:02:09  196196.3     60.50    1284.2       0.0                          
+    0:02:09  196210.4     60.49    1284.2       0.0                          
+    0:02:09  196221.7     60.48    1284.1       0.0                          
+    0:02:09  196283.8     60.47    1283.9       0.0                          
+    0:02:09  196320.5     60.45    1283.4       0.0                          
+    0:02:10  196354.4     60.43    1283.1       0.0                          
+    0:02:10  196374.1     60.42    1283.0       0.0                          
+    0:02:10  196472.9     60.43    1282.9       0.0                          
+    0:02:11  196489.8     60.43    1282.7       0.0                          
+    0:02:11  196489.8     60.43    1282.3       0.0                          
+    0:02:11  196495.5     60.43    1282.2       0.0                          
+    0:02:11  196461.6     60.43    1282.2       0.0                          
+    0:02:11  196427.7     60.43    1282.2       0.0                          
+    0:02:12  196393.9     60.43    1282.2       0.0                          
+    0:02:12  196405.2     60.43    1282.2       0.0                          
+    0:02:13  196475.7     60.42    1282.1       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:13  196501.1     60.36    1281.9       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:14  196526.5     60.36    1281.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:15  196560.4     60.35    1281.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:17  196563.2     60.35    1281.8       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:17  196537.8     60.35    1281.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:18  196563.2     60.33    1281.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:18  196577.3     60.33    1281.2       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:19  196611.2     60.31    1280.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:19  196633.8     60.30    1280.3       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:20  196645.1     60.30    1280.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:20  196625.3     60.29    1280.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:21  196743.9     60.29    1279.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:23  196741.0     60.28    1279.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:23  196862.4     60.26    1279.5       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:24  196853.9     60.26    1279.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:25  196783.4     60.26    1279.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:26  196701.5     60.26    1278.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:27  196726.9     60.23    1278.4       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:28  196729.7     60.22    1278.2       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:29  196766.4     60.21    1277.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:29  196721.3     60.21    1277.8       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:30  196741.0     60.20    1277.7       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:31  196721.3     60.19    1277.6       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:31  196701.5     60.19    1277.6       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:31  196766.4     60.19    1277.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:32  196732.6     60.18    1277.4       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:33  196797.5     60.17    1276.9       0.0 ran_seq_gen/tent50_core/y_current_reg[0]/D
+    0:02:33  196856.8     60.15    1276.7       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:33  196899.1     60.14    1277.5       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:33  196887.8     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:33  196862.4     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:34  196837.0     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:34  196811.6     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:34  196774.9     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:34  196662.0     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:34  196577.3     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:35  196501.1     60.13    1277.3       0.0 ran_seq_gen/tent_core/key3_reg[0]/D
+    0:02:37  196329.0     60.13    1276.9       0.0                          
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+################################################################################
+# Note: compile_ultra does not work for some open source libraries, i.e. Nangate
+# since there are some cells missing for these libraries.
+# Sol: use compile instead. You can use compile_ultra for the commerial library
+# such TSMC45nm, which has a complete set of gates supported.
+#
+# compile_ultra -no_autoungroup; # keep hierarchy for the purpose of debug
+################################################################################
+# High-effort area optimization which improves the area without degrading the
+# timing or leakage of the compiled design
+optimize_netlist -area
+Loading db file '/usr/eelocal/synopsys/syn-vp2019.03-sp5/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.db"
+Library analysis succeeded.
+Warning: The implementation attribute (DW01_add, cla) on cell ran_seq_gen/logistic_core/mult_26_2/FS_1in design hybrid_chaotic_encryption is removed. (SYNDB-44)
+Warning: The implementation attribute (DW01_add, cla) on cell ran_seq_gen/logistic_core/mult_26/FS_1in design hybrid_chaotic_encryption is removed. (SYNDB-44)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | P-2019.03-DWBB_201903.4 |     *     |
+| Licensed DW Building Blocks        | P-2019.03-DWBB_201903.4 |     *     |
+============================================================================
+
+
+Information: There are 284 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loading db file '/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.db'
+Loaded alib file './alib-52/tcb018g3d3wc_ccs.db.alib'
+
+  Updating timing information
+Information: The library cell 'TIEL' in the library 'tcb018g3d3wc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEH' in the library 'tcb018g3d3wc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+
+  Beginning Area Optimization
+  -----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:03:49  196227.4     60.13    1160.5       0.0                            915.4172
+Information: The register 'ran_seq_gen/keystream/key2_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ran_seq_gen/keystream/key2_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ran_seq_gen/keystream/key2_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ran_seq_gen/keystream/key2_reg[8]' is a constant and will be removed. (OPT-1206)
+    0:03:59  189044.4     60.13    1157.5       0.0                            874.9090
+Loading db file '/afs/ee.ust.hk/amd64_linux26/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: The register 'ran_seq_gen/keystream/key_out_reg[8]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/keystream/key_out_reg[9]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/keystream/key_out_reg[10]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/keystream/key_out_reg[11]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/keystream/order_reg[0]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/keystream/order_reg[1]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[1]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[0]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[2]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[3]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[4]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[5]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[6]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[7]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[8]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[9]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[10]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/tent_core/key3_reg[11]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/key_out_reg[8]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/key_out_reg[9]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/key_out_reg[10]' will be removed. (OPT-1207)
+Information: The register 'ran_seq_gen/key_out_reg[11]' will be removed. (OPT-1207)
+Information: The register 'para_extract/key_valid_out_reg' will be removed. (OPT-1207)
+Information: The register 'para_extract/precision_sel_reg[0]' will be removed. (OPT-1207)
+Information: The register 'para_extract/precision_sel_reg[1]' will be removed. (OPT-1207)
+1
+################################################################################
+# Step 5: write out final design and reports
+# The files include:
+# - .ddc: binary format used for subsequent Design Compiler sessions
+# - .v: Verilog netlist for gate-level simulation and P&R
+# - .sdf: SDF backannotated file containing gate and net latency
+# - .sdc: SDC constraints for ASCII flow
+################################################################################
+change_names -rules verilog -hierarchy
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+# Write out design
+write -format verilog -hierarchy -output results/encoder.mapped.v
+Writing verilog file '/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn/results/encoder.mapped.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write -format ddc -hierarchy -output results/encoder.mapped.ddc
+Writing ddc file 'results/encoder.mapped.ddc'.
+1
+write_sdf results/encoder.mapped.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/syn/results/encoder.mapped.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc -nosplit results/encoder.mapped.sdc
+1
+# Generate reports
+report_constraint > reports/encoder.mapped.constraint.rpt
+report_qor > reports/encoder.mapped.qor.rpt
+report_timing -transition_time -nets -attribute -nosplit -delay max   > reports/encoder.mapped.max_timing.rpt
+report_area -nosplit > reports/encoder.mapped.area.rpt
+report_power -nosplit > reports/encoder.mapped.power.rpt
+################################################################################
+# Exit Design Compiler
+################################################################################
+exit
+
+Thank you...
+
