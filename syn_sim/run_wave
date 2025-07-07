@@ -1,0 +1,1 @@
+./simv -ucli -do fsdb.tcl -l sim.log +PLAINTEXT="/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb/tc_data/plaintext_sanity.txt" +PARAM="/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/tb/tc_data/param_sanity.txt"
