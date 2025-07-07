@@ -1,0 +1,43 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2020 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v20.10-p004_1, built Thu May 7 20:02:41 PDT 2020
+Options:	
+Date:		Mon May 26 19:15:48 2025
+Host:		ecelvd703.ece.local (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*24cpus*Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz 36608KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	20.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+<CMD> is_common_ui_mode
+<CMD> restoreDesign /dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout/db/design_top_postroute.enc.dat hybrid_chaotic_encryption
+#% Begin load design ... (date=05/26 19:19:18, mem=515.3M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'hybrid_chaotic_encryption' saved by 'Innovus' '20.10-p004_1' on 'Sun May 25 22:14:03 2025'.
+% Begin Load MMMC data ... (date=05/26 19:19:19, mem=517.6M)
+**ERROR: (TCLCMD-989):	cannot open SDC file '/dfs/usrhome/kjyu/Desktop/eesm5020/design_project/layout/db/design_top_postroute.enc.dat/libs/mmmc/encoder.mapped.sdc' for mode 'SDC'
+
+
+ERROR: 
+
+
+    while executing
+"error $catchMsg"
+    (procedure "restoreDesign" line 31)
+
+
+
+*** Memory Usage v#1 (Current mem = 792.121M, initial mem = 276.242M) ***
+*** Message Summary: 1 warning(s), 1 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:00, real=0:17:47, mem=792.1M) ---

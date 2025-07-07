@@ -1,0 +1,67 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2020 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v20.10-p004_1, built Thu May 7 20:02:41 PDT 2020
+Options:	-init scripts/top.tcl -win 
+Date:		Sat May 24 18:49:37 2025
+Host:		ecelvd810.ece.local (x86_64 w/Linux 3.10.0-1160.95.1.el7.x86_64) (1core*24cpus*Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz 36608KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	20.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+Sourcing file "scripts/top.tcl" ...
+<CMD> set init_verilog ../syn/results/encoder.mapped.v
+<CMD> set init_mmmc_file scripts/mmc2.view
+<CMD> set init_lef_file /afs/ee.ust.hk/sun4x_56/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Back_End/lef/tcb018g3d3_280a/lef/tcb018g3d3_6lm.lef
+<CMD> set init_pwr_net VDD
+<CMD> set init_gnd_net VSS
+<CMD> init_design
+#% Begin Load MMMC data ... (date=05/24 18:49:48, mem=501.4M)
+#% End Load MMMC data ... (date=05/24 18:49:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=501.6M, current mem=501.6M)
+CWORST_T
+**ERROR: (IMPSYT-16038):	The specified file '/afs/ee.ust.hk/sun4x_56/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Back_End/lef/tcb018g3d3_280a/lef/tcb018g3d3_6lm.lef' could not be found. Check your file system, correct the file name.
+**ERROR: (IMPIMEX-7327):	The file '/afs/ee.ust.hk/sun4x_56/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Back_End/lef/tcb018g3d3_280a/lef/tcb018g3d3_6lm.lef' from the init_lef_file variable does not exist or does not have read permissions, so it can't be loaded. If the missing file has LEF data needed by the netlist, a fatal error may occur later when reading the netlist. You should correct the filename to avoid this warning message. 
+Note, the setImportMode -treatUndefinedCellAsBbox option controls if an undefined modules is treated as a black-boxes, and setCheckMode -tapeOut controls if an undefined module (not converted to a blackbox) is treated as a fatal error or empty module when reading the netlist.
+**ERROR: (IMPSYT-6692):	Invalid return code while executing 'scripts/top.tcl' was returned and script processing was stopped. Review the following error in 'scripts/top.tcl' then restart.
+Error info: scripts/top.tcl: 
+    while executing
+"error [putError $::uiEmsHandleId 6729 $msg]"
+    (procedure "apply_design" line 41)
+    invoked from within
+"apply_design $loadViewDefinition"
+    (procedure "init_design" line 366)
+    invoked from within
+"init_design"
+    (file "scripts/top.tcl" line 26)
+    invoked from within
+"::se_source_orig scripts/top.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    (procedure "source" line 176)
+    invoked from within
+"source scripts/top.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 source scripts/top.tcl"
+    ("eval" body line 1)
+    invoked from within
+"eval {uplevel #0 source scripts/top.tcl}"
+    (in namespace inscope "::" script line 1)
+    invoked from within
+"namespace inscope :: eval "uplevel #0 source $fileName"".
+<CMD> win
+
+*** Memory Usage v#1 (Current mem = 782.035M, initial mem = 268.242M) ***
+*** Message Summary: 1 warning(s), 4 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:11.8, real=0:00:45.0, mem=782.0M) ---
